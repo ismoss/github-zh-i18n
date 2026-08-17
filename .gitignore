@@ -1,0 +1,13 @@
+# 依赖
+node_modules/
+
+# 日志 / 系统文件
+*.log
+.DS_Store
+Thumbs.db
+
+# 构建缓存（dist 保留，产物 github-zh.user.js 直接可安装）
+
+# 登录态（含凭证，绝不提交）与自动收集产物
+state.json
+untranslated-auto.json

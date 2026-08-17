@@ -1,0 +1,52 @@
+name: Build & Sync
+
+# 触发：push 到 main（含词库更新）或手动运行
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'build.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Dict self-check
+        run: npm run check:dict
+
+      - name: Build
+        # CI 构建：不传 GH_I18N_VERSION 时沿用 build.mjs 默认版本
+        # 需要递增版本号时在 release 手动运行并填 version input，或改 build.mjs 后 push
+        run: npm run build
+
+      # 注意：不自动提交/推送——GitHub 提交一律由维护者手动执行（避免更新过频）。
+      # 此 workflow 仅做 CI 校验：词库自检 + 构建通过即算成功。
+
+      # - name: Sync to GreasyFork (可选)
+      #   需要先在仓库 Settings → Secrets 配置 GF_API_TOKEN（GreasyFork 账户 API Key），
+      #   并填写你的脚本 ID 后启用：
+      #   run: |
+      #     curl -X POST \
+      #       -H "Authorization: token ${{ secrets.GF_API_TOKEN }}" \
+      #       -F "version=$(grep -oP '@version\s+\K[^\s]+' dist/github-zh.user.js | head -1)" \
+      #       -F "code=@dist/github-zh.user.js" \
+      #       https://greasyfork.org/api/v1/scripts/<你的脚本ID>/versions
