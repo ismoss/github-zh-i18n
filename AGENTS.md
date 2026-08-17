@@ -54,3 +54,8 @@ TypeScript + esbuild（bundle 成单文件 userscript，`@grant none`）。Node 
 10. **确认弹窗动态句**（"You're about to disable X on all public repositories in Y"）→ 正则捕获的功能名先**大写化再查词条**再输出，否则输出英文原文。
 11. **测试断言笔误**（多次 FAIL 是测试期望值写错，非引擎问题）→ 写断言前先核对词条实际值（`lookup` 输出），再定期望。
 12. **heredoc 陷阱**（bash heredoc 里 `${}` 被 shell 解释、printf 里 `%` 被当格式符）→ 含 `${}`/`%` 的测试用 Write 工具写文件，不用 heredoc/printf。
+
+## 维护者（开发者模式）
+- 收集器「译/清」按钮**默认对所有用户隐藏**（第一性原理：收集器是维护工具，不是用户功能；普通用户零收集零 UI）。
+- 启用（维护者本人）：浏览器控制台执行 `localStorage.setItem('gh-i18n-dev','1')` 后刷新 GitHub 页面，即恢复「译/清」按钮与收集。
+- Playwright 测试器（coverage/auto-collect）已通过 addInitScript 自动注入 `gh-i18n-dev=1`，无需手动设置。

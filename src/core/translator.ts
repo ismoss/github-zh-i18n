@@ -740,6 +740,21 @@ const RULES: Array<(s: string) => string | null> = [
     if (m) return `要确认，请在下方输入框中输入 ${m[1]}`;
     return null;
   },
+  // 仓库设置页弹窗标题（动态仓库名）：'Make ismoss/github-zh-i18n private' / 'Delete ismoss/github-zh-i18n'
+  (s) => {
+    const m = /^(Make|Delete) ([\w.-]+\/[\w.-]+)( private)?$/.exec(s);
+    if (m) {
+      const suffix = m[3] ? ' 设为私有' : '';
+      return `${m[1] === 'Make' ? '将' : '删除'} ${m[2]}${suffix}`;
+    }
+    return null;
+  },
+  // 仓库设置页分支保护计数（动态数字）：'0 branch protection rules' → '0 条分支保护规则'
+  (s) => {
+    const m = /^(\d+) branch protection rules?$/.exec(s);
+    if (m) return `${m[1]} 条分支保护规则`;
+    return null;
+  },
 ];
 
 /**

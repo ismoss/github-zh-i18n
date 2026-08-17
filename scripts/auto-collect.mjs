@@ -9,6 +9,7 @@
  *   node scripts/auto-collect.mjs --headed         # 有头模式（可观察，风控时可人工验证）
  *   node scripts/auto-collect.mjs --no-state       # 不用登录态（只测公共页面）
  *   node scripts/auto-collect.mjs --wait 6000      # 调等待时间（默认 4000ms）
+ *   node scripts/auto-collect.mjs --only 仓库设置   # 只逛 label 含该词的页面（单页排查）
  *
  * 前置：
  *   1) node scripts/save-state.mjs  登录一次存档
@@ -27,6 +28,8 @@ const useState = !process.argv.includes('--no-state') && existsSync('state.json'
 const storageState = useState ? 'state.json' : undefined;
 const waitIdx = process.argv.indexOf('--wait');
 const WAIT = waitIdx > -1 && process.argv[waitIdx + 1] ? Number(process.argv[waitIdx + 1]) : 4000;
+const onlyIdx = process.argv.indexOf('--only');
+const ONLY = onlyIdx > -1 && process.argv[onlyIdx + 1] ? process.argv[onlyIdx + 1] : null;
 
 if (!useState) console.log('⚠️  未使用登录态（state.json 不存在或 --no-state），设置页将被跳过（未登录跳登录页）');
 
@@ -71,6 +74,7 @@ const PAGES = [
   { label: '标签', url: `https://github.com/${OWNER}/${REPO}/tags` },
   { label: 'Wiki', url: `https://github.com/${PUB}/${PUBREPO}/wiki` },
   { label: '安全标签页', url: `https://github.com/${OWNER}/${REPO}/security` },
+  { label: '仓库设置', url: `https://github.com/${OWNER}/${REPO}/settings` },
   // ========== ④ 个人主页 ==========
   { label: '个人主页', url: `https://github.com/${OWNER}` },
   { label: '我的仓库', url: `https://github.com/${OWNER}?tab=repositories` },
@@ -136,6 +140,7 @@ let ok = 0;
 let fail = 0;
 
 for (const { label, url } of PAGES) {
+  if (ONLY && !label.includes(ONLY)) continue;
   const context = await browser.newContext({ locale: 'en-US', ...(storageState ? { storageState } : {}) });
   await context.addInitScript(() => { try { localStorage.setItem('gh-i18n-dev', '1'); } catch {} });
   await context.addInitScript({ path: SCRIPT_PATH });
