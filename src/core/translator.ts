@@ -56,6 +56,15 @@ const MONTH_CN: Record<string, string> = {
   Dec: '12',
 };
 
+/** 「最近…」相对周期 → 中文：'3 months' → '3 个月'、'week' → '一周' */
+function periodCn(p: string): string | null {
+  const m = /^(\d+)?\s*(second|minute|hour|day|week|month|year)s?$/.exec(p.trim());
+  if (!m) return null;
+  const unit = TIME_UNIT_CN[m[2]];
+  if (!unit) return null;
+  return m[1] ? `${m[1]} ${unit}` : `一${unit}`;
+}
+
 /** 英文星期 → 中文（提交活动图日期等） */
 const WEEK_CN: Record<string, string> = {
   Sunday: '星期日',
@@ -753,6 +762,72 @@ const RULES: Array<(s: string) => string | null> = [
   (s) => {
     const m = /^(\d+) branch protection rules?$/.exec(s);
     if (m) return `${m[1]} 条分支保护规则`;
+    return null;
+  },
+  // 精细化令牌过期选项（含动态日期）：'30 days (Nov 19, 2026)' → '30 天（2026年11月19日）'
+  (s) => {
+    const m = /^(\d+) days? \(([A-Za-z]+) (\d{1,2}), (\d{4})\)$/.exec(s);
+    if (m && MONTH_CN[m[2]]) return `${m[1]} 天（${m[4]}年${MONTH_CN[m[2]]}月${m[3]}日）`;
+    return null;
+  },
+  // 星期 + 完整日期：'Thursday, November 19, 2026' → '2026年11月19日 星期四'
+  (s) => {
+    const m = /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday), ([A-Za-z]+) (\d{1,2}), (\d{4})$/.exec(s);
+    if (m && MONTH_CN[m[2]]) return `${m[4]}年${MONTH_CN[m[2]]}月${m[3]}日 ${WEEK_CN[m[1]]}`;
+    return null;
+  },
+  // 精细化令牌页企业策略提示（组织名/天数动态，个人账户下组织名可能为空）：
+  // 'The ismoss requires a maximum lifetime of 0 days for fine-grained personal access tokens. As an enterprise administrator you are exempted from this requirement.'
+  (s) => {
+    const m = /^The (.*?)requires a maximum lifetime of (\d+) days? for fine-grained personal access tokens\. As an enterprise administrator you are exempted from this requirement\.$/.exec(s);
+    if (m) {
+      const owner = m[1].trim() || '该组织';
+      return `${owner}要求精细化个人访问令牌的最长有效期为 ${m[2]} 天。作为企业管理员，你不受此要求限制。`;
+    }
+    return null;
+  },
+  // 令牌「最近使用」相对时间（周/月/年等任意粒度，末尾可能带分隔点）：
+  // 'Last used within the last week' / 'Last used within the last 3 months •'
+  (s) => {
+    const m = /^Last used within the last (.+?)(?:\s*•)?$/.exec(s);
+    if (!m) return null;
+    const period = periodCn(m[1]);
+    if (!period) return null;
+    // 带数字时中英之间留空格（与词库既有风格一致）：'最近 3 个月内使用过' / '最近一周内使用过'
+    return /^\d/.test(m[1]) ? `最近 ${period}内使用过` : `最近${period}内使用过`;
+  },
+  // 令牌最近使用时点：'Last used on Nov 19, 2026' → '上次使用于 2026年11月19日'
+  (s) => {
+    const m = /^Last used on ([A-Z][a-z]{2}) (\d{1,2}), (\d{4})$/.exec(s);
+    if (m && MONTH_CN[m[1]]) return `上次使用于 ${m[3]}年${MONTH_CN[m[1]]}月${m[2]}日`;
+    return null;
+  },
+  // GitHub App 事件说明链接（事件名动态，先查词条再拼）：
+  // 'Learn more about the Issue comment event' → '进一步了解议题评论事件'
+  (s) => {
+    const m = /^Learn more about the (.+) event$/.exec(s);
+    if (m) {
+      const name = lookup(m[1]) ?? m[1];
+      // 事件名含拉丁字母（Team / Copilot Chat 等）时两侧留空格
+      return /[A-Za-z]/.test(name) ? `进一步了解 ${name} 事件` : `进一步了解${name}事件`;
+    }
+    return null;
+  },
+  // 应用授权页：'You have granted 5 applications access to your account.'
+  (s) => {
+    const m = /^You have granted ([\d,]+) applications? access to your account\.$/.exec(s);
+    if (m) return `你已授权 ${m[1]} 个应用访问你的账户。`;
+    return null;
+  },
+  (s) => {
+    const m = /^You have not granted any applications access to your account\.$/.exec(s);
+    if (m) return '你尚未授权任何应用访问你的账户。';
+    return null;
+  },
+  // 应用安装范围：'Only allow this GitHub App to be installed on the @ismoss account.'
+  (s) => {
+    const m = /^Only allow this GitHub App to be installed on the (@.+) account\.$/.exec(s);
+    if (m) return `仅允许此 GitHub 应用安装在 ${m[1]} 账户上。`;
     return null;
   },
 ];
