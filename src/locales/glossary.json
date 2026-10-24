@@ -161,5 +161,9 @@
   "Copilot for Business": "Copilot for Business",
   "GitHub Stars": "GitHub Stars",
   "GitHub Skills": "GitHub Skills",
-  "DevSecOps": "DevSecOps"
+  "DevSecOps": "DevSecOps",
+  "API": "API",
+  "OIDC": "OIDC",
+  "SHA": "SHA",
+  "MCP": "MCP"
 }

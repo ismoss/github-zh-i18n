@@ -2,7 +2,7 @@
 // @name         GitHub 界面汉化
 // @name:zh-CN   GitHub 界面汉化
 // @namespace    github-zh-i18n
-// @version      2026.10.20.1708
+// @version      2026.10.24.1602
 // @description  基于 DeepSeek-V4-Flash 开发的自用 GitHub 翻译插件：纯本地词库、零外链依赖、不翻译用户内容（README/Issue/评论/代码），术语遵循 GitHub 官方词汇表。边用边更新中，遇到未翻译内容可自行编译或等待更新。
 // @author       Moss & WorkBuddy
 // @match        https://github.com/*
@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 /*!
- * github-zh-i18n v2026.10.20.1708
+ * github-zh-i18n v2026.10.24.1602
  * 纯本地词库汉化 GitHub 界面，零网络依赖。
  * 源码: workspace/github-zh-i18n/src
  * 构建: node build.mjs
@@ -3748,7 +3748,176 @@
     "No sponsorship activity in this time period": "\u8BE5\u65F6\u95F4\u6BB5\u5185\u6CA1\u6709\u8D5E\u52A9\u6D3B\u52A8",
     "This is where you can review activity from your sponsorships.": "\u4F60\u53EF\u4EE5\u5728\u8FD9\u91CC\u67E5\u770B\u8D5E\u52A9\u6D3B\u52A8\u3002",
     "Checks on code.": "\u4EE3\u7801\u68C0\u67E5\u3002",
-    Variables: "\u53D8\u91CF"
+    Variables: "\u53D8\u91CF",
+    "Actions permissions": "Actions \u6743\u9650",
+    "Allow all actions and reusable workflows": "\u5141\u8BB8\u6240\u6709 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41",
+    "Any action or reusable workflow can be used, regardless of who authored it or where it is defined.": "\u53EF\u4EE5\u4F7F\u7528\u4EFB\u4F55 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\uFF0C\u65E0\u8BBA\u7531\u8C01\u7F16\u5199\u3001\u5B9A\u4E49\u5728\u54EA\u91CC\u3002",
+    "Disable actions": "\u7981\u7528 Actions",
+    "The Actions tab is hidden and no workflows can run.": "Actions \u9009\u9879\u5361\u4F1A\u88AB\u9690\u85CF\uFF0C\u4EFB\u4F55\u5DE5\u4F5C\u6D41\u90FD\u65E0\u6CD5\u8FD0\u884C\u3002",
+    "Learn more about allowing specific actions and reusable workflows to run.": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u5982\u4F55\u5141\u8BB8\u7279\u5B9A\u7684 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\u8FD0\u884C\u3002",
+    "Allow actions created by GitHub": "\u5141\u8BB8 GitHub \u521B\u5EFA\u7684 Actions",
+    "Allow actions by Marketplace": "\u5141\u8BB8\u7531 Marketplace",
+    "verified creators": "\u5DF2\u9A8C\u8BC1\u521B\u5EFA\u8005\u53D1\u5E03\u7684 Actions",
+    "Allow or block specified actions and reusable workflows": "\u5141\u8BB8\u6216\u963B\u6B62\u6307\u5B9A\u7684 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41",
+    "Enter a comma-separated list of actions and reusable workflows": "\u8F93\u5165\u4EE5\u9017\u53F7\u5206\u9694\u7684 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\u5217\u8868",
+    "Wildcards, tags, and SHAs are allowed. Use": "\u5141\u8BB8\u4F7F\u7528\u901A\u914D\u7B26\u3001\u6807\u7B7E\u548C SHA\u3002\u4F7F\u7528",
+    "prefix to block.": "\u524D\u7F00\u8868\u793A\u963B\u6B62\u3002",
+    "Action examples:": "Actions \u793A\u4F8B\uFF1A",
+    "Reusable workflow examples:": "\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\u793A\u4F8B\uFF1A",
+    "Entire organization or repository examples:": "\u6574\u4E2A\u7EC4\u7EC7\u6216\u4ED3\u5E93\u793A\u4F8B\uFF1A",
+    "Your list contains a": "\u4F60\u7684\u5217\u8868\u5305\u542B\u4E00\u4E2A",
+    "wildcard pattern, which will": "\u901A\u914D\u7B26\u6A21\u5F0F\uFF0C\u8FD9\u4F1A",
+    "allow all actions and reusable workflows": "\u5141\u8BB8\u6240\u6709 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41",
+    "except those that are explicitly blocked.": "\uFF08\u660E\u786E\u88AB\u963B\u6B62\u7684\u9664\u5916\uFF09\u3002",
+    "Your list contains": "\u4F60\u7684\u5217\u8868\u5305\u542B",
+    "only blocked patterns": "\u53EA\u6709\u963B\u6B62\u6A21\u5F0F",
+    ". By default, only allowed patterns specified in the list can be used. To allow all actions and reusable workflows except those that are explicitly blocked, add a": "\u3002\u9ED8\u8BA4\u60C5\u51B5\u4E0B\uFF0C\u53EA\u80FD\u4F7F\u7528\u5217\u8868\u4E2D\u6307\u5B9A\u7684\u5141\u8BB8\u6A21\u5F0F\u3002\u8981\u5141\u8BB8\u6240\u6709 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\uFF08\u660E\u786E\u88AB\u963B\u6B62\u7684\u9664\u5916\uFF09\uFF0C\u8BF7\u6DFB\u52A0\u4E00\u4E2A",
+    "wildcard pattern.": "\u901A\u914D\u7B26\u6A21\u5F0F\u3002",
+    "Require actions to be pinned to a full-length commit SHA": "\u8981\u6C42 Actions \u56FA\u5B9A\u5230\u5B8C\u6574\u957F\u5EA6\u7684\u63D0\u4EA4 SHA",
+    "Check, workflow run, status, artifact and log retention": "\u68C0\u67E5\u3001\u5DE5\u4F5C\u6D41\u8FD0\u884C\u3001\u72B6\u6001\u3001\u6784\u5EFA\u4EA7\u7269\u548C\u65E5\u5FD7\u7684\u4FDD\u7559\u671F",
+    "Choose the repository settings for checks, workflow runs, statuses, artifacts, and logs.": "\u9009\u62E9\u68C0\u67E5\u3001\u5DE5\u4F5C\u6D41\u8FD0\u884C\u3001\u72B6\u6001\u3001\u6784\u5EFA\u4EA7\u7269\u548C\u65E5\u5FD7\u7684\u4ED3\u5E93\u8BBE\u7F6E\u3002",
+    "Save artifact and log retention setting": "\u4FDD\u5B58\u6784\u5EFA\u4EA7\u7269\u548C\u65E5\u5FD7\u4FDD\u7559\u671F\u8BBE\u7F6E",
+    "Duration must be 90 or less": "\u65F6\u957F\u5FC5\u987B\u5C0F\u4E8E\u6216\u7B49\u4E8E 90",
+    "Duration must be 1 or more.": "\u65F6\u957F\u5FC5\u987B\u5927\u4E8E\u6216\u7B49\u4E8E 1\u3002",
+    "There is a maximum limit of": "\u4E0A\u9650\u4E3A",
+    "Learn more about the check, workflow run, status, artifact and log retention policy.": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u68C0\u67E5\u3001\u5DE5\u4F5C\u6D41\u8FD0\u884C\u3001\u72B6\u6001\u3001\u6784\u5EFA\u4EA7\u7269\u548C\u65E5\u5FD7\u7684\u4FDD\u7559\u7B56\u7565\u3002",
+    "Approval for running fork pull request workflows from contributors": "\u5BF9\u8D21\u732E\u8005\u7684\u590D\u523B\u62C9\u53D6\u8BF7\u6C42\u8FD0\u884C\u5DE5\u4F5C\u6D41\u65F6\u7684\u6279\u51C6\u8981\u6C42",
+    "Choose which subset of users will require approval before running workflows on their pull requests. Both the pull request author and the actor of the pull request event triggering the workflow will be checked to determine if approval is required. If approval is required, a user with write access to the repository must": "\u9009\u62E9\u54EA\u4E9B\u7528\u6237\u5728\u5176\u62C9\u53D6\u8BF7\u6C42\u4E0A\u8FD0\u884C\u5DE5\u4F5C\u6D41\u524D\u9700\u8981\u6279\u51C6\u3002\u7CFB\u7EDF\u4F1A\u540C\u65F6\u68C0\u67E5\u62C9\u53D6\u8BF7\u6C42\u4F5C\u8005\u4E0E\u89E6\u53D1\u8BE5\u5DE5\u4F5C\u6D41\u7684\u62C9\u53D6\u8BF7\u6C42\u4E8B\u4EF6\u64CD\u4F5C\u8005\uFF0C\u4EE5\u786E\u5B9A\u662F\u5426\u9700\u8981\u6279\u51C6\u3002\u5982\u679C\u9700\u8981\u6279\u51C6\uFF0C\u5177\u6709\u4ED3\u5E93\u5199\u5165\u6743\u9650\u7684\u7528\u6237\u5FC5\u987B",
+    "approve the pull request workflow to be run.": "\u6279\u51C6\u8BE5\u62C9\u53D6\u8BF7\u6C42\u5DE5\u4F5C\u6D41\u624D\u80FD\u8FD0\u884C\u3002",
+    "Require approval for first-time contributors who are new to GitHub": "\u8981\u6C42\u65B0\u52A0\u5165 GitHub \u7684\u9996\u6B21\u8D21\u732E\u8005\u83B7\u5F97\u6279\u51C6",
+    "Only users who are both new on GitHub and who have never had a commit or pull request merged into this repository will require approval to run workflows.": "\u53EA\u6709\u540C\u65F6\u6EE1\u8DB3\u201CGitHub \u65B0\u7528\u6237\u201D\u4E14\u201C\u4ECE\u672A\u5411\u6B64\u4ED3\u5E93\u63D0\u4EA4\u8FC7\u63D0\u4EA4\u6216\u5408\u5E76\u8FC7\u62C9\u53D6\u8BF7\u6C42\u201D\u7684\u7528\u6237\uFF0C\u624D\u9700\u8981\u5728\u8FD0\u884C\u5DE5\u4F5C\u6D41\u524D\u83B7\u5F97\u6279\u51C6\u3002",
+    "Require approval for first-time contributors": "\u8981\u6C42\u9996\u6B21\u8D21\u732E\u8005\u83B7\u5F97\u6279\u51C6",
+    "Only users who have never had a commit or pull request merged into this repository will require approval to run workflows.": "\u53EA\u6709\u4ECE\u672A\u5411\u6B64\u4ED3\u5E93\u63D0\u4EA4\u8FC7\u63D0\u4EA4\u6216\u5408\u5E76\u8FC7\u62C9\u53D6\u8BF7\u6C42\u7684\u7528\u6237\uFF0C\u624D\u9700\u8981\u5728\u8FD0\u884C\u5DE5\u4F5C\u6D41\u524D\u83B7\u5F97\u6279\u51C6\u3002",
+    "Require approval for all external contributors": "\u8981\u6C42\u6240\u6709\u5916\u90E8\u8D21\u732E\u8005\u83B7\u5F97\u6279\u51C6",
+    "All users that are not a member or owner of this repository will require approval to run workflows.": "\u6240\u6709\u4E0D\u662F\u6B64\u4ED3\u5E93\u6210\u5458\u6216\u6240\u6709\u8005\u7684\u7528\u6237\u90FD\u9700\u8981\u83B7\u5F97\u6279\u51C6\u624D\u80FD\u8FD0\u884C\u5DE5\u4F5C\u6D41\u3002",
+    "Save fork pull request workflows setting": "\u4FDD\u5B58\u590D\u523B\u62C9\u53D6\u8BF7\u6C42\u5DE5\u4F5C\u6D41\u8BBE\u7F6E",
+    "Workflow permissions": "\u5DE5\u4F5C\u6D41\u6743\u9650",
+    "Choose the default permissions granted to the GITHUB_TOKEN when running workflows in this repository. You can specify more granular permissions in the workflow using YAML.": "\u9009\u62E9\u5728\u6B64\u4ED3\u5E93\u4E2D\u8FD0\u884C\u5DE5\u4F5C\u6D41\u65F6\u6388\u4E88 GITHUB_TOKEN \u7684\u9ED8\u8BA4\u6743\u9650\u3002\u4F60\u53EF\u4EE5\u5728\u5DE5\u4F5C\u6D41\u4E2D\u7528 YAML \u6307\u5B9A\u66F4\u7EC6\u7C92\u5EA6\u7684\u6743\u9650\u3002",
+    "Learn more about managing permissions.": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u5982\u4F55\u7BA1\u7406\u6743\u9650\u3002",
+    "Read and write permissions": "\u8BFB\u5199\u6743\u9650",
+    "Workflows have read and write permissions in the repository for all scopes.": "\u5DE5\u4F5C\u6D41\u5728\u4ED3\u5E93\u4E2D\u5BF9\u6240\u6709\u8303\u56F4\u90FD\u5177\u6709\u8BFB\u5199\u6743\u9650\u3002",
+    "Read repository contents and packages permissions": "\u8BFB\u53D6\u4ED3\u5E93\u5185\u5BB9\u4E0E\u8F6F\u4EF6\u5305\u7684\u6743\u9650",
+    "Workflows have read permissions in the repository for the contents and packages scopes only.": "\u5DE5\u4F5C\u6D41\u5728\u4ED3\u5E93\u4E2D\u4EC5\u5BF9\u5185\u5BB9\u548C\u8F6F\u4EF6\u5305\u8303\u56F4\u5177\u6709\u8BFB\u53D6\u6743\u9650\u3002",
+    "Choose whether GitHub Actions can create pull requests or submit approving pull request reviews.": "\u9009\u62E9 GitHub Actions \u662F\u5426\u53EF\u4EE5\u521B\u5EFA\u62C9\u53D6\u8BF7\u6C42\u6216\u63D0\u4EA4\u6279\u51C6\u6027\u7684\u62C9\u53D6\u8BF7\u6C42\u5BA1\u67E5\u3002",
+    "Allow GitHub Actions to create and approve pull requests": "\u5141\u8BB8 GitHub Actions \u521B\u5EFA\u5E76\u6279\u51C6\u62C9\u53D6\u8BF7\u6C42",
+    "Save workflow permissions settings": "\u4FDD\u5B58\u5DE5\u4F5C\u6D41\u6743\u9650\u8BBE\u7F6E",
+    "OIDC Configuration": "OIDC \u914D\u7F6E",
+    "OIDC configuration": "OIDC \u914D\u7F6E",
+    "Policy insights": "\u7B56\u7565\u6D1E\u5BDF",
+    "Internet access": "\u4E92\u8054\u7F51\u8BBF\u95EE",
+    Cloud: "\u4E91\u7AEF",
+    "Customize claims included in the OIDC token.": "\u81EA\u5B9A\u4E49 OIDC \u4EE4\u724C\u4E2D\u5305\u542B\u7684\u58F0\u660E\u3002",
+    "Learn more about OIDC tokens.": "\u8FDB\u4E00\u6B65\u4E86\u89E3 OIDC \u4EE4\u724C\u3002",
+    "Subject claim": "\u4E3B\u4F53\u58F0\u660E",
+    "Customize the subject (sub) claim in the OIDC token, used to identify the workflow run context.": "\u81EA\u5B9A\u4E49 OIDC \u4EE4\u724C\u4E2D\u7684\u4E3B\u4F53\uFF08sub\uFF09\u58F0\u660E\uFF0C\u7528\u4E8E\u6807\u8BC6\u5DE5\u4F5C\u6D41\u8FD0\u884C\u7684\u4E0A\u4E0B\u6587\u3002",
+    "Use default template": "\u4F7F\u7528\u9ED8\u8BA4\u6A21\u677F",
+    "When selected, use upstream template for the subject claim. Unselect to set a custom template.": "\u9009\u4E2D\u65F6\uFF0C\u4E3B\u4F53\u58F0\u660E\u4F7F\u7528\u4E0A\u6E38\u6A21\u677F\uFF1B\u53D6\u6D88\u9009\u4E2D\u53EF\u8BBE\u7F6E\u81EA\u5B9A\u4E49\u6A21\u677F\u3002",
+    "Use immutable subject claim": "\u4F7F\u7528\u4E0D\u53EF\u53D8\u4E3B\u4F53\u58F0\u660E",
+    "Learn more about immutable subject claims.": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u4E0D\u53EF\u53D8\u4E3B\u4F53\u58F0\u660E\u3002",
+    "Default subject claim prefix": "\u9ED8\u8BA4\u4E3B\u4F53\u58F0\u660E\u524D\u7F00",
+    "Copy subject claim prefix": "\u590D\u5236\u4E3B\u4F53\u58F0\u660E\u524D\u7F00",
+    "Use this prefix when configuring trust policies in your cloud provider.": "\u5728\u4E91\u670D\u52A1\u5546\u4E2D\u914D\u7F6E\u4FE1\u4EFB\u7B56\u7565\u65F6\u4F7F\u7528\u6B64\u524D\u7F00\u3002",
+    "Save subject claim": "\u4FDD\u5B58\u4E3B\u4F53\u58F0\u660E",
+    items: "\u9879",
+    "Copilot code review": "Copilot \u4EE3\u7801\u5BA1\u67E5",
+    "Copilot reviews your pull requests, flagging bugs and suggesting improvements as inline comments.": "Copilot \u4F1A\u5BA1\u67E5\u4F60\u7684\u62C9\u53D6\u8BF7\u6C42\uFF0C\u6807\u8BB0\u7F3A\u9677\u5E76\u4EE5\u884C\u5185\u8BC4\u8BBA\u7684\u5F62\u5F0F\u63D0\u51FA\u6539\u8FDB\u5EFA\u8BAE\u3002",
+    "Learn more about Copilot code review.": "\u8FDB\u4E00\u6B65\u4E86\u89E3 Copilot \u4EE3\u7801\u5BA1\u67E5\u3002",
+    "No Copilot code review access": "\u6CA1\u6709 Copilot \u4EE3\u7801\u5BA1\u67E5\u6743\u9650",
+    "Copilot code review isn't enabled for your account, but these settings still apply to people who have access to Copilot code review.": "\u4F60\u7684\u8D26\u6237\u672A\u542F\u7528 Copilot \u4EE3\u7801\u5BA1\u67E5\uFF0C\u4F46\u8FD9\u4E9B\u8BBE\u7F6E\u4ECD\u9002\u7528\u4E8E\u6709\u6743\u4F7F\u7528 Copilot \u4EE3\u7801\u5BA1\u67E5\u7684\u4EBA\u3002",
+    "Review effort level": "\u5BA1\u67E5\u529B\u5EA6\u7EA7\u522B",
+    "Controls the depth of analysis when Copilot reviews pull requests.": "\u63A7\u5236 Copilot \u5BA1\u67E5\u62C9\u53D6\u8BF7\u6C42\u65F6\u7684\u5206\u6790\u6DF1\u5EA6\u3002",
+    "Default (Balanced)": "\u9ED8\u8BA4\uFF08\u5747\u8861\uFF09",
+    "Allow Copilot to use MCP tools when reviewing pull requests": "\u5141\u8BB8 Copilot \u5728\u5BA1\u67E5\u62C9\u53D6\u8BF7\u6C42\u65F6\u4F7F\u7528 MCP \u5DE5\u5177",
+    "Copilot code review uses the tools from your": "Copilot \u4EE3\u7801\u5BA1\u67E5\u4F1A\u4F7F\u7528\u4F60",
+    "during reviews.": "\u4E2D\u7684\u5DE5\u5177\u8FDB\u884C\u5BA1\u67E5\u3002",
+    "Use custom instructions": "\u4F7F\u7528\u81EA\u5B9A\u4E49\u6307\u4EE4",
+    "Copilot references instruction files in this repository. Organization custom instructions apply regardless of this setting.": "Copilot \u4F1A\u5F15\u7528\u6B64\u4ED3\u5E93\u4E2D\u7684\u6307\u4EE4\u6587\u4EF6\u3002\u65E0\u8BBA\u6B64\u8BBE\u7F6E\u5982\u4F55\uFF0C\u7EC4\u7EC7\u81EA\u5B9A\u4E49\u6307\u4EE4\u90FD\u4F1A\u751F\u6548\u3002",
+    "Learn more about custom instructions.": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u81EA\u5B9A\u4E49\u6307\u4EE4\u3002",
+    Approvals: "\u6279\u51C6",
+    "Allow Copilot to approve pull requests": "\u5141\u8BB8 Copilot \u6279\u51C6\u62C9\u53D6\u8BF7\u6C42",
+    "Copilot approvals can count toward merge requirements.": "Copilot \u7684\u6279\u51C6\u53EF\u4EE5\u8BA1\u5165\u5408\u5E76\u8981\u6C42\u3002",
+    "Automatic code review": "\u81EA\u52A8\u4EE3\u7801\u5BA1\u67E5",
+    "Use rulesets to request a review when a pull request is opened, on each new push, or while it is still a draft.": "\u4F7F\u7528\u89C4\u5219\u96C6\u5728\u62C9\u53D6\u8BF7\u6C42\u6253\u5F00\u65F6\u3001\u6BCF\u6B21\u65B0\u63A8\u9001\u65F6\uFF0C\u6216\u4ECD\u4E3A\u8349\u7A3F\u65F6\u8BF7\u6C42\u5BA1\u67E5\u3002",
+    "Learn more about automatic code review.": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u81EA\u52A8\u4EE3\u7801\u5BA1\u67E5\u3002",
+    "No rulesets": "\u6CA1\u6709\u89C4\u5219\u96C6",
+    "View all rulesets": "\u67E5\u770B\u6240\u6709\u89C4\u5219\u96C6",
+    "Automate Copilot code reviews": "\u81EA\u52A8\u5316 Copilot \u4EE3\u7801\u5BA1\u67E5",
+    "Create ruleset for default branch": "\u4E3A\u9ED8\u8BA4\u5206\u652F\u521B\u5EFA\u89C4\u5219\u96C6",
+    "Access and licensing": "\u8BBF\u95EE\u4E0E\u8BB8\u53EF",
+    "Block reviews requested with an external Copilot license": "\u963B\u6B62\u4F7F\u7528\u5916\u90E8 Copilot \u8BB8\u53EF\u8BC1\u8BF7\u6C42\u7684\u5BA1\u67E5",
+    "External licenses": "\u5916\u90E8\u8BB8\u53EF\u8BC1",
+    "include personal Copilot licenses.": "\u5305\u62EC\u4E2A\u4EBA Copilot \u8BB8\u53EF\u8BC1\u3002",
+    "In a personal repository, only the owner and direct collaborators can request reviews.": "\u5728\u4E2A\u4EBA\u4ED3\u5E93\u4E2D\uFF0C\u53EA\u6709\u6240\u6709\u8005\u548C\u76F4\u63A5\u534F\u4F5C\u8005\u53EF\u4EE5\u8BF7\u6C42\u5BA1\u67E5\u3002",
+    "Automatic reviews from rulesets still run.": "\u6765\u81EA\u89C4\u5219\u96C6\u7684\u81EA\u52A8\u5BA1\u67E5\u4ECD\u4F1A\u8FD0\u884C\u3002",
+    "Protect your branches with repository rulesets": "\u4F7F\u7528\u4ED3\u5E93\u89C4\u5219\u96C6\u4FDD\u62A4\u4F60\u7684\u5206\u652F",
+    "are the recommended way to protect branches, with required deployments, bypass lists, org-level enforcement, and more.": "\u662F\u4FDD\u62A4\u5206\u652F\u7684\u63A8\u8350\u65B9\u5F0F\uFF0C\u652F\u6301\u5FC5\u9700\u90E8\u7F72\u3001\u7ED5\u8FC7\u5217\u8868\u3001\u7EC4\u7EC7\u7EA7\u5F3A\u5236\u6267\u884C\u7B49\u3002",
+    "Classic branch protections": "\u7ECF\u5178\u5206\u652F\u4FDD\u62A4",
+    "are also available but offer fewer capabilities.": "\u4E5F\u53EF\u7528\uFF0C\u4F46\u63D0\u4F9B\u7684\u529F\u80FD\u8F83\u5C11\u3002",
+    "Add classic branch protection rule": "\u6DFB\u52A0\u7ECF\u5178\u5206\u652F\u4FDD\u62A4\u89C4\u5219",
+    "Add branch ruleset": "\u6DFB\u52A0\u5206\u652F\u89C4\u5219\u96C6",
+    "Compare & pull request": "\u6BD4\u8F83\u5E76\u521B\u5EFA\u62C9\u53D6\u8BF7\u6C42",
+    Contribute: "\u8D21\u732E",
+    "Sync fork": "\u540C\u6B65\u590D\u523B",
+    "forked from": "\u590D\u523B\u81EA",
+    "No contributors": "\u6682\u65E0\u8D21\u732E\u8005",
+    "New self-hosted runner": "\u65B0\u5EFA\u81EA\u6258\u7BA1\u8FD0\u884C\u5668",
+    "Regenerate token": "\u91CD\u65B0\u751F\u6210\u4EE4\u724C",
+    "Regenerate personal access token (classic)": "\u91CD\u65B0\u751F\u6210\u4E2A\u4EBA\u8BBF\u95EE\u4EE4\u724C\uFF08\u7ECF\u5178\uFF09",
+    "Submitting this form will generate a new token. Be aware that any scripts or applications using this token will need to be updated.": "\u63D0\u4EA4\u6B64\u8868\u5355\u4F1A\u751F\u6210\u4E00\u4E2A\u65B0\u4EE4\u724C\u3002\u8BF7\u6CE8\u610F\uFF0C\u4EFB\u4F55\u4F7F\u7528\u6B64\u4EE4\u724C\u7684\u811A\u672C\u6216\u5E94\u7528\u90FD\u9700\u8981\u66F4\u65B0\u3002",
+    "These are fine-grained, repository-scoped tokens suitable for personal": "\u8FD9\u4E9B\u662F\u7EC6\u7C92\u5EA6\u7684\u3001\u4F5C\u7528\u57DF\u9650\u4E8E\u4ED3\u5E93\u7684\u4EE4\u724C\uFF0C\u9002\u5408\u7528\u4E8E\u4E2A\u4EBA",
+    "use and for using Git over HTTPS.": "\u7528\u9014\uFF0C\u4EE5\u53CA\u901A\u8FC7 HTTPS \u4F7F\u7528 Git\u3002",
+    "When merging pull requests, you can allow any combination of merge commits, squashing, or rebasing. At least one option must be enabled. If you have linear history requirement enabled on any protected branch, you must enable squashing or rebasing.": "\u5408\u5E76\u62C9\u53D6\u8BF7\u6C42\u65F6\uFF0C\u4F60\u53EF\u4EE5\u5141\u8BB8\u4EFB\u610F\u7EC4\u5408\u7684\u5408\u5E76\u63D0\u4EA4\u3001\u538B\u7F29\u6216\u53D8\u57FA\u3002\u5FC5\u987B\u81F3\u5C11\u542F\u7528\u4E00\u4E2A\u9009\u9879\u3002\u5982\u679C\u5728\u4EFB\u4F55\u53D7\u4FDD\u62A4\u5206\u652F\u4E0A\u542F\u7528\u4E86\u7EBF\u6027\u5386\u53F2\u8981\u6C42\uFF0C\u4F60\u5FC5\u987B\u542F\u7528\u538B\u7F29\u6216\u53D8\u57FA\u3002",
+    "Projects on GitHub are created at the repository owner's level (organization or user) and can be linked to a repository's Projects tab. Projects are suitable for cross-repository development efforts such as feature work, complex product roadmaps or even Issue triage.": "GitHub \u4E0A\u7684\u9879\u76EE\u521B\u5EFA\u5728\u4ED3\u5E93\u6240\u6709\u8005\uFF08\u7EC4\u7EC7\u6216\u7528\u6237\uFF09\u5C42\u7EA7\uFF0C\u5E76\u53EF\u5173\u8054\u5230\u4ED3\u5E93\u7684\u201C\u9879\u76EE\u201D\u9009\u9879\u5361\u3002\u9879\u76EE\u9002\u5408\u8DE8\u4ED3\u5E93\u7684\u5F00\u53D1\u5DE5\u4F5C\uFF0C\u4F8B\u5982\u529F\u80FD\u5F00\u53D1\u3001\u590D\u6742\u7684\u4EA7\u54C1\u8DEF\u7EBF\u56FE\uFF0C\u751A\u81F3\u8BAE\u9898\u5206\u7C7B\u6574\u7406\u3002",
+    "Enabling this setting will require contributors to sign off on commits made through GitHub's web interface. Signing off is a way for contributors to affirm that their commit complies with the repository's terms, commonly the": "\u542F\u7528\u6B64\u8BBE\u7F6E\u540E\uFF0C\u8D21\u732E\u8005\u901A\u8FC7 GitHub \u7F51\u9875\u754C\u9762\u6240\u505A\u7684\u63D0\u4EA4\u90FD\u9700\u8981\u7B7E\u7F72\u3002\u7B7E\u7F72\u662F\u8D21\u732E\u8005\u786E\u8BA4\u5176\u63D0\u4EA4\u7B26\u5408\u4ED3\u5E93\u6761\u6B3E\u7684\u4E00\u79CD\u65B9\u5F0F\uFF0C\u901A\u5E38\u662F",
+    "Existing commit comments are not affected by this setting and will remain viewable, editable, and deletable.": "\u73B0\u6709\u7684\u63D0\u4EA4\u8BC4\u8BBA\u4E0D\u53D7\u6B64\u8BBE\u7F6E\u5F71\u54CD\uFF0C\u4ECD\u53EF\u67E5\u770B\u3001\u7F16\u8F91\u548C\u5220\u9664\u3002",
+    "After you've performed a sudo-protected action, you'll only be asked to re-authenticate again after a few hours of inactivity.": "\u6267\u884C\u53D7 sudo \u4FDD\u62A4\u7684\u64CD\u4F5C\u540E\uFF0C\u53EA\u6709\u5728\u95F2\u7F6E\u51E0\u4E2A\u5C0F\u65F6\u540E\u624D\u4F1A\u518D\u6B21\u8981\u6C42\u4F60\u91CD\u65B0\u9A8C\u8BC1\u8EAB\u4EFD\u3002",
+    "and send us your": "\u5E76\u628A\u4F60\u7684",
+    "Temporary interaction restrictions": "\u4E34\u65F6\u4EA4\u4E92\u9650\u5236",
+    "Temporarily restrict which external users can interact with your repository (comment, open issues, or create pull requests) for a configurable period of time.": "\u5728\u53EF\u914D\u7F6E\u7684\u4E00\u6BB5\u65F6\u95F4\u5185\uFF0C\u4E34\u65F6\u9650\u5236\u54EA\u4E9B\u5916\u90E8\u7528\u6237\u53EF\u4EE5\u4E0E\u4F60\u7684\u4ED3\u5E93\u4EA4\u4E92\uFF08\u8BC4\u8BBA\u3001\u521B\u5EFA\u8BAE\u9898\u6216\u521B\u5EFA\u62C9\u53D6\u8BF7\u6C42\uFF09\u3002",
+    "Users that have recently created their account will be unable to interact with the repository.": "\u6700\u8FD1\u521B\u5EFA\u8D26\u6237\u7684\u7528\u6237\u5C06\u65E0\u6CD5\u4E0E\u8BE5\u4ED3\u5E93\u4EA4\u4E92\u3002",
+    "You can restrict repository interactions across your account in your": "\u4F60\u53EF\u4EE5\u5728\u4F60\u7684",
+    "account settings": "\u8D26\u6237\u8BBE\u7F6E",
+    "Users that have not previously": "\u4E0D\u662F\u6B64\u524D",
+    "to the main branch of this repository will be unable to interact with the repository.": "\u5230\u6B64\u4ED3\u5E93 main \u5206\u652F\u7684\u7528\u6237\u5C06\u65E0\u6CD5\u4E0E\u8BE5\u4ED3\u5E93\u4EA4\u4E92\u3002",
+    "Users that are not": "\u4E0D\u662F",
+    collaborators: "\u534F\u4F5C\u8005",
+    "will not be able to interact with the repository.": "\u7684\u7528\u6237\u5C06\u65E0\u6CD5\u4E0E\u8BE5\u4ED3\u5E93\u4EA4\u4E92\u3002",
+    "Pull request limits": "\u62C9\u53D6\u8BF7\u6C42\u9650\u5236",
+    "Restrict how many pull requests users without write access can have open at one time and add specific users to a bypass list. These settings stay in effect until you change them.": "\u9650\u5236\u6CA1\u6709\u5199\u5165\u6743\u9650\u7684\u7528\u6237\u540C\u65F6\u53EF\u4EE5\u6253\u5F00\u591A\u5C11\u4E2A\u62C9\u53D6\u8BF7\u6C42\uFF0C\u5E76\u5C06\u7279\u5B9A\u7528\u6237\u52A0\u5165\u7ED5\u8FC7\u5217\u8868\u3002\u8FD9\u4E9B\u8BBE\u7F6E\u4F1A\u4E00\u76F4\u751F\u6548\uFF0C\u76F4\u5230\u4F60\u66F4\u6539\u5B83\u4EEC\u3002",
+    "Currently, users without write access can open an unlimited number of pull requests.": "\u76EE\u524D\uFF0C\u6CA1\u6709\u5199\u5165\u6743\u9650\u7684\u7528\u6237\u53EF\u4EE5\u6253\u5F00\u4E0D\u9650\u6570\u91CF\u7684\u62C9\u53D6\u8BF7\u6C42\u3002",
+    "Limit open pull requests from users without write access": "\u9650\u5236\u6CA1\u6709\u5199\u5165\u6743\u9650\u7684\u7528\u6237\u6253\u5F00\u7684\u62C9\u53D6\u8BF7\u6C42",
+    "Restrict users who are permitted to approve or request changes on pull requests in this repository.": "\u9650\u5236\u54EA\u4E9B\u7528\u6237\u53EF\u4EE5\u5728\u8FD9\u4E00\u4ED3\u5E93\u7684\u62C9\u53D6\u8BF7\u6C42\u4E0A\u6279\u51C6\u6216\u8BF7\u6C42\u66F4\u6539\u3002",
+    "Limit to users explicitly granted": "\u9650\u5236\u4E3A\u4EC5\u660E\u786E\u6388\u4E88",
+    read: "\u8BFB\u53D6",
+    "or higher access": "\u6216\u66F4\u9AD8\u6743\u9650\u7684\u7528\u6237",
+    'When enabled, only users explicitly granted access to this repository will be able to submit pull request reviews that "approve" or "request changes". All users able to submit comment pull request reviews will continue to be able to do so.': "\u542F\u7528\u540E\uFF0C\u53EA\u6709\u88AB\u660E\u786E\u6388\u4E88\u6B64\u4ED3\u5E93\u8BBF\u95EE\u6743\u9650\u7684\u7528\u6237\u624D\u80FD\u63D0\u4EA4\u201C\u6279\u51C6\u201D\u6216\u201C\u8BF7\u6C42\u66F4\u6539\u201D\u7684\u62C9\u53D6\u8BF7\u6C42\u5BA1\u67E5\u3002\u6240\u6709\u80FD\u591F\u63D0\u4EA4\u8BC4\u8BBA\u578B\u62C9\u53D6\u8BF7\u6C42\u5BA1\u67E5\u7684\u7528\u6237\u4ECD\u53EF\u7EE7\u7EED\u8FD9\u6837\u505A\u3002",
+    "You haven't created any rulesets": "\u4F60\u8FD8\u6CA1\u6709\u521B\u5EFA\u4EFB\u4F55\u89C4\u5219\u96C6",
+    "Define whether collaborators can delete or force push and set requirements for any pushes, such as passing status checks or a linear commit history.": "\u5B9A\u4E49\u534F\u4F5C\u8005\u662F\u5426\u53EF\u4EE5\u5220\u9664\u6216\u5F3A\u5236\u63A8\u9001\uFF0C\u5E76\u4E3A\u63A8\u9001\u8BBE\u7F6E\u8981\u6C42\uFF0C\u4F8B\u5982\u901A\u8FC7\u72B6\u6001\u68C0\u67E5\u6216\u4FDD\u6301\u7EBF\u6027\u63D0\u4EA4\u5386\u53F2\u3002",
+    "Learn more about rulesets": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u89C4\u5219\u96C6",
+    "New ruleset": "\u65B0\u5EFA\u89C4\u5219\u96C6",
+    "Level up your tag protections with Repository Rules": "\u7528\u4ED3\u5E93\u89C4\u5219\u5347\u7EA7\u4F60\u7684\u6807\u7B7E\u4FDD\u62A4",
+    "Protected tags are being deprecated. To continue protecting tags, please migrate to a tag ruleset by August 30th. You can learn more about the sunset in our": "\u53D7\u4FDD\u62A4\u6807\u7B7E\u529F\u80FD\u6B63\u5728\u88AB\u5F03\u7528\u3002\u8981\u7EE7\u7EED\u4FDD\u62A4\u6807\u7B7E\uFF0C\u8BF7\u5728 8 \u6708 30 \u65E5\u524D\u8FC1\u79FB\u5230\u6807\u7B7E\u89C4\u5219\u96C6\u3002\u4F60\u53EF\u4EE5\u5728\u6211\u4EEC\u7684",
+    changelog: "\u66F4\u65B0\u65E5\u5FD7",
+    "and can get started now by migrating to rulesets.": "\u4E2D\u8FDB\u4E00\u6B65\u4E86\u89E3\u8BE5\u529F\u80FD\u7684\u505C\u7528\uFF0C\u73B0\u5728\u5C31\u53EF\u4EE5\u5F00\u59CB\u8FC1\u79FB\u5230\u89C4\u5219\u96C6\u3002",
+    "Protected tags have been deprecated": "\u53D7\u4FDD\u62A4\u6807\u7B7E\u5DF2\u88AB\u5F03\u7528",
+    "Go to rulesets to create new tag rules": "\u524D\u5F80\u89C4\u5219\u96C6\u521B\u5EFA\u65B0\u7684\u6807\u7B7E\u89C4\u5219",
+    "Protected tags": "\u53D7\u4FDD\u62A4\u6807\u7B7E",
+    "Host your own runners and customize the environment used to run jobs in your GitHub Actions workflows.": "\u6258\u7BA1\u4F60\u81EA\u5DF1\u7684\u8FD0\u884C\u5668\uFF0C\u5E76\u81EA\u5B9A\u4E49 GitHub Actions \u5DE5\u4F5C\u6D41\u4E2D\u8FD0\u884C\u4F5C\u4E1A\u6240\u4F7F\u7528\u7684\u73AF\u5883\u3002",
+    "Learn more about self-hosted runners": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u81EA\u6258\u7BA1\u8FD0\u884C\u5668",
+    "There are no runners configured": "\u672A\u914D\u7F6E\u4EFB\u4F55\u8FD0\u884C\u5668",
+    "Learn more about using runners": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u5982\u4F55\u4F7F\u7528\u8FD0\u884C\u5668",
+    "to run actions on your own servers.": "\u5728\u4F60\u81EA\u5DF1\u7684\u670D\u52A1\u5668\u4E0A\u8FD0\u884C\u64CD\u4F5C\u3002",
+    "Actions policies": "Actions \u7B56\u7565",
+    "You haven't created any policies": "\u4F60\u8FD8\u6CA1\u6709\u521B\u5EFA\u4EFB\u4F55\u7B56\u7565",
+    "Define whether actions can run in specific contexts.": "\u5B9A\u4E49\u64CD\u4F5C\u662F\u5426\u53EF\u4EE5\u5728\u7279\u5B9A\u60C5\u5F62\u4E0B\u8FD0\u884C\u3002",
+    "Learn more about policies": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u7B56\u7565",
+    "New policy": "\u65B0\u5EFA\u7B56\u7565",
+    "Actions policy insights": "Actions \u7B56\u7565\u6D1E\u5BDF",
+    "No rule evaluations matched your search": "\u6CA1\u6709\u5339\u914D\u4F60\u641C\u7D22\u5185\u5BB9\u7684\u89C4\u5219\u8BC4\u4F30",
+    "Webhooks allow external services to be notified when certain events happen. When the specified events happen, we'll send a POST request to each of the URLs you provide. Learn more in our": "Webhook \u5141\u8BB8\u5728\u7279\u5B9A\u4E8B\u4EF6\u53D1\u751F\u65F6\u901A\u77E5\u5916\u90E8\u670D\u52A1\u3002\u5F53\u6307\u5B9A\u4E8B\u4EF6\u53D1\u751F\u65F6\uFF0C\u6211\u4EEC\u4F1A\u5411\u4F60\u63D0\u4F9B\u7684\u6BCF\u4E2A URL \u53D1\u9001 POST \u8BF7\u6C42\u3002\u5728\u6211\u4EEC\u7684",
+    "Webhooks Guide": "Webhook \u6307\u5357",
+    "Add webhook": "\u6DFB\u52A0 Webhook",
+    "on public repositories by default. To continue allowing the event trigger, configure an Actions policy.": "\u5728\u516C\u5171\u4ED3\u5E93\u4E2D\u7684\u9ED8\u8BA4\u4F7F\u7528\u3002\u8981\u7EE7\u7EED\u5141\u8BB8\u8BE5\u4E8B\u4EF6\u89E6\u53D1\uFF0C\u8BF7\u914D\u7F6E Actions \u7B56\u7565\u3002"
   };
 
   // src/locales/glossary.json
@@ -3915,7 +4084,11 @@
     "Copilot for Business": "Copilot for Business",
     "GitHub Stars": "GitHub Stars",
     "GitHub Skills": "GitHub Skills",
-    DevSecOps: "DevSecOps"
+    DevSecOps: "DevSecOps",
+    API: "API",
+    OIDC: "OIDC",
+    SHA: "SHA",
+    MCP: "MCP"
   };
 
   // src/core/collector.ts
@@ -4970,6 +5143,83 @@
     (s) => {
       const m = /^Only allow this GitHub App to be installed on the (@.+) account\.$/.exec(s);
       if (m) return `\u4EC5\u5141\u8BB8\u6B64 GitHub \u5E94\u7528\u5B89\u88C5\u5728 ${m[1]} \u8D26\u6237\u4E0A\u3002`;
+      return null;
+    },
+    // 仓库设置页隐藏标题（sr-only）：'Settings: owner/repo' → '设置：owner/repo'
+    (s) => {
+      const m = /^Settings: ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `\u8BBE\u7F6E\uFF1A${m[1]}`;
+      return null;
+    },
+    // 设置页 <title>：'Settings · Branches · owner/repo' → '设置 · 分支 · owner/repo'
+    (s) => {
+      const m = /^Settings · (.+?) · ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) {
+        const raw = m[1];
+        const softer = raw.replace(/^([A-Z])(.*)$/, (_x, a, b) => a + b.toLowerCase());
+        const name = lookup(raw) ?? lookup(softer) ?? raw;
+        return `\u8BBE\u7F6E \xB7 ${name} \xB7 ${m[2]}`;
+      }
+      return null;
+    },
+    // 设置页 <title>：'Actions settings · owner/repo' → 'Actions 设置 · owner/repo'
+    (s) => {
+      const m = /^Actions settings · ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `Actions \u8BBE\u7F6E \xB7 ${m[1]}`;
+      return null;
+    },
+    // 复刻弹窗标题：'Fork owner/repo' → '复刻 owner/repo'
+    (s) => {
+      const m = /^Fork ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `\u590D\u523B ${m[1]}`;
+      return null;
+    },
+    // 分支列表：'had recent pushes 57 seconds ago' → '最近推送于 57 秒前'
+    (s) => {
+      const m = /^had recent pushes (\d+)\s+(seconds?|minutes?|hours?|days?|weeks?|months?|years?) ago$/.exec(s);
+      if (m) {
+        const unit = TIME_UNIT_CN[m[2]];
+        if (unit) return `\u6700\u8FD1\u63A8\u9001\u4E8E ${m[1]} ${unit}\u524D`;
+      }
+      return null;
+    },
+    // Actions 策略页（允许/阻止列表，owner 为动态账户名）：
+    // 'Allow ismoss actions and reusable workflows' → '允许 ismoss 的 Actions 和可复用工作流'
+    (s) => {
+      const m = /^Allow ([\w.-]+) actions and reusable workflows$/.exec(s);
+      if (m) return `\u5141\u8BB8 ${m[1]} \u7684 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41`;
+      return null;
+    },
+    // 'Any action or reusable workflow defined in a repository within ismoss can be used.'
+    (s) => {
+      const m = /^Any action or reusable workflow defined in a repository within ([\w.-]+) can be used\.$/.exec(s);
+      if (m) return `\u53EF\u4EE5\u4F7F\u7528 ${m[1]} \u4E2D\u4EFB\u610F\u4ED3\u5E93\u5B9A\u4E49\u7684\u6240\u6709 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\u3002`;
+      return null;
+    },
+    // 'Allow ismoss, and select non-ismoss, actions and reusable workflows'
+    (s) => {
+      const m = /^Allow ([\w.-]+), and select non-([\w.-]+), actions and reusable workflows$/.exec(s);
+      if (m) return `\u5141\u8BB8 ${m[1]} \u7684 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\uFF0C\u5E76\u9009\u62E9\u975E ${m[2]} \u7684`;
+      return null;
+    },
+    // 'Any action or reusable workflow that matches the specified criteria, plus those defined in a repository within ismoss, can be used.'
+    (s) => {
+      const m = /^Any action or reusable workflow that matches the specified criteria, plus those defined in a repository within ([\w.-]+), can be used\.$/.exec(s);
+      if (m) return `\u53EF\u4EE5\u4F7F\u7528\u7B26\u5408\u6307\u5B9A\u6761\u4EF6\u7684\u6240\u6709 Actions \u548C\u53EF\u590D\u7528\u5DE5\u4F5C\u6D41\uFF0C\u4EE5\u53CA ${m[1]} \u4E2D\u4EFB\u610F\u4ED3\u5E93\u5B9A\u4E49\u7684\u3002`;
+      return null;
+    },
+    // OIDC 不可变主体声明（生效日期动态）：
+    // 'Automatically enabled for this repository. Repositories created or renamed after July 15, 2026 use immutable subject claims.'
+    (s) => {
+      const m = /^Automatically enabled for this repository\. Repositories created or renamed after ([A-Z][a-z]+) (\d{1,2}), (\d{4}) use immutable subject claims\.$/.exec(s);
+      if (m && MONTH_CN[m[1]]) return `\u5DF2\u4E3A\u6B64\u4ED3\u5E93\u81EA\u52A8\u542F\u7528\u3002\u5728 ${m[3]}\u5E74${MONTH_CN[m[1]]}\u6708${m[2]}\u65E5 \u4E4B\u540E\u521B\u5EFA\u6216\u91CD\u547D\u540D\u7684\u4ED3\u5E93\u4F7F\u7528\u4E0D\u53EF\u53D8\u4E3B\u4F53\u58F0\u660E\u3002`;
+      return null;
+    },
+    // Actions 策略页公告（含行内代码 pull_request_target，日期动态）：
+    // 'On December 2, 2026, GitHub will restrict' → '自 2026年12月2日 起，GitHub 将限制'
+    (s) => {
+      const m = /^On ([A-Z][a-z]+) (\d{1,2}), (\d{4}), GitHub will restrict$/.exec(s);
+      if (m && MONTH_CN[m[1]]) return `\u81EA ${m[3]}\u5E74${MONTH_CN[m[1]]}\u6708${m[2]}\u65E5 \u8D77\uFF0CGitHub \u5C06\u9650\u5236`;
       return null;
     }
   ];

@@ -830,6 +830,84 @@ const RULES: Array<(s: string) => string | null> = [
     if (m) return `仅允许此 GitHub 应用安装在 ${m[1]} 账户上。`;
     return null;
   },
+  // 仓库设置页隐藏标题（sr-only）：'Settings: owner/repo' → '设置：owner/repo'
+  (s) => {
+    const m = /^Settings: ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `设置：${m[1]}`;
+    return null;
+  },
+  // 设置页 <title>：'Settings · Branches · owner/repo' → '设置 · 分支 · owner/repo'
+  (s) => {
+    const m = /^Settings · (.+?) · ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) {
+      // 标题里的子页名首字母大写（'Copilot Code review'），词条是小写句首式，兜底降级再查一次
+      const raw = m[1];
+      const softer = raw.replace(/^([A-Z])(.*)$/, (_x, a: string, b: string) => a + b.toLowerCase());
+      const name = lookup(raw) ?? lookup(softer) ?? raw;
+      return `设置 · ${name} · ${m[2]}`;
+    }
+    return null;
+  },
+  // 设置页 <title>：'Actions settings · owner/repo' → 'Actions 设置 · owner/repo'
+  (s) => {
+    const m = /^Actions settings · ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `Actions 设置 · ${m[1]}`;
+    return null;
+  },
+  // 复刻弹窗标题：'Fork owner/repo' → '复刻 owner/repo'
+  (s) => {
+    const m = /^Fork ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `复刻 ${m[1]}`;
+    return null;
+  },
+  // 分支列表：'had recent pushes 57 seconds ago' → '最近推送于 57 秒前'
+  (s) => {
+    const m = /^had recent pushes (\d+)\s+(seconds?|minutes?|hours?|days?|weeks?|months?|years?) ago$/.exec(s);
+    if (m) {
+      const unit = TIME_UNIT_CN[m[2]];
+      if (unit) return `最近推送于 ${m[1]} ${unit}前`;
+    }
+    return null;
+  },
+  // Actions 策略页（允许/阻止列表，owner 为动态账户名）：
+  // 'Allow ismoss actions and reusable workflows' → '允许 ismoss 的 Actions 和可复用工作流'
+  (s) => {
+    const m = /^Allow ([\w.-]+) actions and reusable workflows$/.exec(s);
+    if (m) return `允许 ${m[1]} 的 Actions 和可复用工作流`;
+    return null;
+  },
+  // 'Any action or reusable workflow defined in a repository within ismoss can be used.'
+  (s) => {
+    const m = /^Any action or reusable workflow defined in a repository within ([\w.-]+) can be used\.$/.exec(s);
+    if (m) return `可以使用 ${m[1]} 中任意仓库定义的所有 Actions 和可复用工作流。`;
+    return null;
+  },
+  // 'Allow ismoss, and select non-ismoss, actions and reusable workflows'
+  (s) => {
+    const m = /^Allow ([\w.-]+), and select non-([\w.-]+), actions and reusable workflows$/.exec(s);
+    if (m) return `允许 ${m[1]} 的 Actions 和可复用工作流，并选择非 ${m[2]} 的`;
+    return null;
+  },
+  // 'Any action or reusable workflow that matches the specified criteria, plus those defined in a repository within ismoss, can be used.'
+  (s) => {
+    const m = /^Any action or reusable workflow that matches the specified criteria, plus those defined in a repository within ([\w.-]+), can be used\.$/.exec(s);
+    if (m) return `可以使用符合指定条件的所有 Actions 和可复用工作流，以及 ${m[1]} 中任意仓库定义的。`;
+    return null;
+  },
+  // OIDC 不可变主体声明（生效日期动态）：
+  // 'Automatically enabled for this repository. Repositories created or renamed after July 15, 2026 use immutable subject claims.'
+  (s) => {
+    const m = /^Automatically enabled for this repository\. Repositories created or renamed after ([A-Z][a-z]+) (\d{1,2}), (\d{4}) use immutable subject claims\.$/.exec(s);
+    if (m && MONTH_CN[m[1]]) return `已为此仓库自动启用。在 ${m[3]}年${MONTH_CN[m[1]]}月${m[2]}日 之后创建或重命名的仓库使用不可变主体声明。`;
+    return null;
+  },
+  // Actions 策略页公告（含行内代码 pull_request_target，日期动态）：
+  // 'On December 2, 2026, GitHub will restrict' → '自 2026年12月2日 起，GitHub 将限制'
+  (s) => {
+    const m = /^On ([A-Z][a-z]+) (\d{1,2}), (\d{4}), GitHub will restrict$/.exec(s);
+    if (m && MONTH_CN[m[1]]) return `自 ${m[3]}年${MONTH_CN[m[1]]}月${m[2]}日 起，GitHub 将限制`;
+    return null;
+  },
 ];
 
 /**
