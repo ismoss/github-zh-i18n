@@ -172,5 +172,8 @@
   "Playwright": "Playwright",
   "JavaScript / TypeScript": "JavaScript / TypeScript",
   "Swift *": "Swift *",
-  "/docs": "/docs"
+  "/docs": "/docs",
+  "IDE": "IDE",
+  "Node.js": "Node.js",
+  "ORCID.org": "ORCID.org"
 }

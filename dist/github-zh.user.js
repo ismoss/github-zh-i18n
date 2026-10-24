@@ -2,7 +2,7 @@
 // @name         GitHub 界面汉化
 // @name:zh-CN   GitHub 界面汉化
 // @namespace    github-zh-i18n
-// @version      2026.10.24.1742
+// @version      2026.10.24.1851
 // @description  基于 DeepSeek-V4-Flash 开发的自用 GitHub 翻译插件：纯本地词库、零外链依赖、不翻译用户内容（README/Issue/评论/代码），术语遵循 GitHub 官方词汇表。边用边更新中，遇到未翻译内容可自行编译或等待更新。
 // @author       Moss & WorkBuddy
 // @match        https://github.com/*
@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 /*!
- * github-zh-i18n v2026.10.24.1742
+ * github-zh-i18n v2026.10.24.1851
  * 纯本地词库汉化 GitHub 界面，零网络依赖。
  * 源码: workspace/github-zh-i18n/src
  * 构建: node build.mjs
@@ -4268,7 +4268,649 @@
     "With a GitHub Enterprise account, you can restrict access to your GitHub Pages site by publishing it privately. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise. You can try GitHub Enterprise risk-free for 30 days.": "\u4F7F\u7528 GitHub Enterprise \u8D26\u6237,\u4F60\u53EF\u4EE5\u5C06 GitHub Pages \u7AD9\u70B9\u8BBE\u4E3A\u79C1\u6709\u53D1\u5E03\u6765\u9650\u5236\u8BBF\u95EE\u3002\u79C1\u6709\u53D1\u5E03\u7684\u7AD9\u70B9\u53EF\u7528\u4E8E\u4E0E\u4F01\u4E1A\u6210\u5458\u5171\u4EAB\u5185\u90E8\u6587\u6863\u6216\u77E5\u8BC6\u5E93\u3002\u4F60\u53EF\u4EE5\u514D\u8D39\u65E0\u98CE\u9669\u8BD5\u7528 GitHub Enterprise 30 \u5929\u3002",
     "use an SSH key to grant readonly or write access to a single repository. They are not protected by a passphrase and can be a security risk if your server is compromised. If you have a complex project or want more fine-grain control over permissions, consider using": "\u7528 SSH \u5BC6\u94A5\u6388\u4E88\u5BF9\u5355\u4E2A\u4ED3\u5E93\u7684\u53EA\u8BFB\u6216\u8BFB\u5199\u8BBF\u95EE\u3002\u5B83\u4EEC\u4E0D\u53D7\u53E3\u4EE4\u77ED\u8BED\u4FDD\u62A4,\u670D\u52A1\u5668\u5931\u9677\u65F6\u6709\u5B89\u5168\u98CE\u9669\u3002\u5982\u679C\u9879\u76EE\u590D\u6742\u6216\u9700\u8981\u66F4\u7EC6\u7C92\u5EA6\u7684\u6743\u9650\u63A7\u5236,\u8BF7\u8003\u8651\u4F7F\u7528",
     "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.": "\u9009\u62E9\u5728\u5F15\u7528\u66F4\u65B0\u524D\u5FC5\u987B\u63D0\u4F9B\u4EE3\u7801\u626B\u63CF\u7ED3\u679C\u7684\u5DE5\u5177\u3002\u914D\u7F6E\u540E,\u5FC5\u987B\u542F\u7528\u4EE3\u7801\u626B\u63CF,\u4E14\u63D0\u4EA4\u4E0E\u88AB\u66F4\u65B0\u7684\u5F15\u7528\u90FD\u9700\u6709\u626B\u63CF\u7ED3\u679C\u3002",
-    "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.": "\u5BF9 PR \u5F3A\u5236\u6267\u884C\u6700\u4F4E\u884C\u8986\u76D6\u7387\u9608\u503C\u3002\u6B64\u89C4\u5219\u8BC4\u4F30\u5DF2\u4E0A\u4F20\u7684\u8986\u76D6\u7387\u6570\u636E,\u4F46\u4E0D\u4F1A\u7B49\u5F85\u8986\u76D6\u7387\u4E0A\u4F20\u3002\u8981\u786E\u4FDD\u5408\u5E76\u524D\u5B8C\u6210\u8986\u76D6\u7387\u8BC4\u4F30,\u8BF7\u5C06\u4E0E\u8986\u76D6\u7387\u4E0A\u4F20\u5173\u8054\u7684\u72B6\u6001\u68C0\u67E5\u8BBE\u4E3A\u5FC5\u9700\u68C0\u67E5\u3002"
+    "Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.": "\u5BF9 PR \u5F3A\u5236\u6267\u884C\u6700\u4F4E\u884C\u8986\u76D6\u7387\u9608\u503C\u3002\u6B64\u89C4\u5219\u8BC4\u4F30\u5DF2\u4E0A\u4F20\u7684\u8986\u76D6\u7387\u6570\u636E,\u4F46\u4E0D\u4F1A\u7B49\u5F85\u8986\u76D6\u7387\u4E0A\u4F20\u3002\u8981\u786E\u4FDD\u5408\u5E76\u524D\u5B8C\u6210\u8986\u76D6\u7387\u8BC4\u4F30,\u8BF7\u5C06\u4E0E\u8986\u76D6\u7387\u4E0A\u4F20\u5173\u8054\u7684\u72B6\u6001\u68C0\u67E5\u8BBE\u4E3A\u5FC5\u9700\u68C0\u67E5\u3002",
+    Afghanistan: "\u963F\u5BCC\u6C57",
+    Albania: "\u963F\u5C14\u5DF4\u5C3C\u4E9A",
+    Algeria: "\u963F\u5C14\u53CA\u5229\u4E9A",
+    "American Samoa": "\u7F8E\u5C5E\u8428\u6469\u4E9A",
+    Andorra: "\u5B89\u9053\u5C14",
+    Angola: "\u5B89\u54E5\u62C9",
+    Anguilla: "\u5B89\u572D\u62C9",
+    Antarctica: "\u5357\u6781\u6D32",
+    "Antigua and Barbuda": "\u5B89\u63D0\u74DC\u548C\u5DF4\u5E03\u8FBE",
+    Argentina: "\u963F\u6839\u5EF7",
+    Armenia: "\u4E9A\u7F8E\u5C3C\u4E9A",
+    Aruba: "\u963F\u9C81\u5DF4",
+    Austria: "\u5965\u5730\u5229",
+    Azerbaijan: "\u963F\u585E\u62DC\u7586",
+    Bahamas: "\u5DF4\u54C8\u9A6C",
+    Bahrain: "\u5DF4\u6797",
+    Bangladesh: "\u5B5F\u52A0\u62C9\u56FD",
+    Barbados: "\u5DF4\u5DF4\u591A\u65AF",
+    Belarus: "\u767D\u4FC4\u7F57\u65AF",
+    Belgium: "\u6BD4\u5229\u65F6",
+    Belize: "\u4F2F\u5229\u5179",
+    Benin: "\u8D1D\u5B81",
+    Bermuda: "\u767E\u6155\u5927",
+    Bhutan: "\u4E0D\u4E39",
+    Bolivia: "\u73BB\u5229\u7EF4\u4E9A",
+    "Bonaire, Sint Eustatius and Saba": "\u535A\u5948\u5C14\u3001\u5723\u5C24\u65AF\u7279\u6B47\u65AF\u548C\u8428\u5DF4",
+    "Bosnia and Herzegovina": "\u6CE2\u65AF\u5C3C\u4E9A\u548C\u9ED1\u585E\u54E5\u7EF4\u90A3",
+    Botswana: "\u535A\u8328\u74E6\u7EB3",
+    "Bouvet Island": "\u5E03\u97E6\u5C9B",
+    "British Indian Ocean Territory": "\u82F1\u5C5E\u5370\u5EA6\u6D0B\u9886\u5730",
+    "Brunei Darussalam": "\u6587\u83B1",
+    Bulgaria: "\u4FDD\u52A0\u5229\u4E9A",
+    "Burkina Faso": "\u5E03\u57FA\u7EB3\u6CD5\u7D22",
+    Burundi: "\u5E03\u9686\u8FEA",
+    Cambodia: "\u67EC\u57D4\u5BE8",
+    Cameroon: "\u5580\u9EA6\u9686",
+    "Cape Verde": "\u4F5B\u5F97\u89D2",
+    "Cayman Islands": "\u5F00\u66FC\u7FA4\u5C9B",
+    "Central African Republic": "\u4E2D\u975E\u5171\u548C\u56FD",
+    Chad: "\u4E4D\u5F97",
+    Chile: "\u667A\u5229",
+    "Christmas Island": "\u5723\u8BDE\u5C9B",
+    "Cocos (Keeling) Islands": "\u79D1\u79D1\u65AF(\u57FA\u6797)\u7FA4\u5C9B",
+    Colombia: "\u54E5\u4F26\u6BD4\u4E9A",
+    Comoros: "\u79D1\u6469\u7F57",
+    "Congo (Brazzaville)": "\u521A\u679C(\u5E03\u62C9\u67F4\u7EF4\u5C14)",
+    "Congo (Kinshasa)": "\u521A\u679C(\u91D1\u6C99\u8428)",
+    "Cook Islands": "\u5E93\u514B\u7FA4\u5C9B",
+    "Costa Rica": "\u54E5\u65AF\u8FBE\u9ECE\u52A0",
+    "C\xF4te d'Ivoire": "\u79D1\u7279\u8FEA\u74E6",
+    Croatia: "\u514B\u7F57\u5730\u4E9A",
+    Cura\u00E7ao: "\u5E93\u62C9\u7D22",
+    Cyprus: "\u585E\u6D66\u8DEF\u65AF",
+    "Czech Republic": "\u6377\u514B\u5171\u548C\u56FD",
+    Denmark: "\u4E39\u9EA6",
+    Djibouti: "\u5409\u5E03\u63D0",
+    Dominica: "\u591A\u7C73\u5C3C\u514B",
+    "Dominican Republic": "\u591A\u7C73\u5C3C\u52A0\u5171\u548C\u56FD",
+    Ecuador: "\u5384\u74DC\u591A\u5C14",
+    Egypt: "\u57C3\u53CA",
+    "El Salvador": "\u8428\u5C14\u74E6\u591A",
+    "Equatorial Guinea": "\u8D64\u9053\u51E0\u5185\u4E9A",
+    Eritrea: "\u5384\u7ACB\u7279\u91CC\u4E9A",
+    Estonia: "\u7231\u6C99\u5C3C\u4E9A",
+    Ethiopia: "\u57C3\u585E\u4FC4\u6BD4\u4E9A",
+    "Falkland Islands": "\u798F\u514B\u5170\u7FA4\u5C9B",
+    "Faroe Islands": "\u6CD5\u7F57\u7FA4\u5C9B",
+    Fiji: "\u6590\u6D4E",
+    Finland: "\u82AC\u5170",
+    "French Guiana": "\u6CD5\u5C5E\u572D\u4E9A\u90A3",
+    "French Polynesia": "\u6CD5\u5C5E\u6CE2\u5229\u5C3C\u897F\u4E9A",
+    "French Southern Lands": "\u6CD5\u5C5E\u5357\u90E8\u9886\u5730",
+    Gabon: "\u52A0\u84EC",
+    Gambia: "\u5188\u6BD4\u4E9A",
+    Georgia: "\u683C\u9C81\u5409\u4E9A",
+    Ghana: "\u52A0\u7EB3",
+    Gibraltar: "\u76F4\u5E03\u7F57\u9640",
+    Greece: "\u5E0C\u814A",
+    Greenland: "\u683C\u9675\u5170",
+    Grenada: "\u683C\u6797\u7EB3\u8FBE",
+    Guadeloupe: "\u74DC\u5FB7\u7F57\u666E",
+    Guam: "\u5173\u5C9B",
+    Guatemala: "\u5371\u5730\u9A6C\u62C9",
+    Guernsey: "\u6839\u897F\u5C9B",
+    Guinea: "\u51E0\u5185\u4E9A",
+    "Guinea-Bissau": "\u51E0\u5185\u4E9A\u6BD4\u7ECD",
+    Guyana: "\u572D\u4E9A\u90A3",
+    Haiti: "\u6D77\u5730",
+    "Heard and McDonald Islands": "\u8D6B\u5FB7\u548C\u9EA6\u514B\u5510\u7EB3\u7FA4\u5C9B",
+    Honduras: "\u6D2A\u90FD\u62C9\u65AF",
+    Hungary: "\u5308\u7259\u5229",
+    Iceland: "\u51B0\u5C9B",
+    Iran: "\u4F0A\u6717",
+    Iraq: "\u4F0A\u62C9\u514B",
+    Ireland: "\u7231\u5C14\u5170",
+    "Isle of Man": "\u9A6C\u6069\u5C9B",
+    Israel: "\u4EE5\u8272\u5217",
+    Jamaica: "\u7259\u4E70\u52A0",
+    Jersey: "\u6CFD\u897F\u5C9B",
+    Jordan: "\u7EA6\u65E6",
+    Kazakhstan: "\u54C8\u8428\u514B\u65AF\u5766",
+    Kenya: "\u80AF\u5C3C\u4E9A",
+    Kiribati: "\u57FA\u91CC\u5DF4\u65AF",
+    Kuwait: "\u79D1\u5A01\u7279",
+    Kyrgyzstan: "\u5409\u5C14\u5409\u65AF\u65AF\u5766",
+    Laos: "\u8001\u631D",
+    Latvia: "\u62C9\u8131\u7EF4\u4E9A",
+    Lebanon: "\u9ECE\u5DF4\u5AE9",
+    Lesotho: "\u83B1\u7D22\u6258",
+    Liberia: "\u5229\u6BD4\u91CC\u4E9A",
+    Libya: "\u5229\u6BD4\u4E9A",
+    Liechtenstein: "\u5217\u652F\u6566\u58EB\u767B",
+    Lithuania: "\u7ACB\u9676\u5B9B",
+    Luxembourg: "\u5362\u68EE\u5821",
+    Madagascar: "\u9A6C\u8FBE\u52A0\u65AF\u52A0",
+    Malawi: "\u9A6C\u62C9\u7EF4",
+    Maldives: "\u9A6C\u5C14\u4EE3\u592B",
+    Mali: "\u9A6C\u91CC",
+    Malta: "\u9A6C\u8033\u4ED6",
+    "Marshall Islands": "\u9A6C\u7ECD\u5C14\u7FA4\u5C9B",
+    Martinique: "\u9A6C\u63D0\u5C3C\u514B",
+    Mauritania: "\u6BDB\u91CC\u5854\u5C3C\u4E9A",
+    Mauritius: "\u6BDB\u91CC\u6C42\u65AF",
+    Mayotte: "\u9A6C\u7EA6\u7279",
+    Mexico: "\u58A8\u897F\u54E5",
+    Micronesia: "\u5BC6\u514B\u7F57\u5C3C\u897F\u4E9A",
+    Moldova: "\u6469\u5C14\u591A\u74E6",
+    Monaco: "\u6469\u7EB3\u54E5",
+    Mongolia: "\u8499\u53E4",
+    Montenegro: "\u9ED1\u5C71",
+    Montserrat: "\u8499\u7279\u585E\u62C9\u7279",
+    Morocco: "\u6469\u6D1B\u54E5",
+    Mozambique: "\u83AB\u6851\u6BD4\u514B",
+    Myanmar: "\u7F05\u7538",
+    Namibia: "\u7EB3\u7C73\u6BD4\u4E9A",
+    Nepal: "\u5C3C\u6CCA\u5C14",
+    "New Caledonia": "\u65B0\u5580\u91CC\u591A\u5C3C\u4E9A",
+    Nicaragua: "\u5C3C\u52A0\u62C9\u74DC",
+    Niger: "\u5C3C\u65E5\u5C14",
+    Nigeria: "\u5C3C\u65E5\u5229\u4E9A",
+    Niue: "\u7EBD\u57C3",
+    "Norfolk Island": "\u8BFA\u798F\u514B\u5C9B",
+    Norway: "\u632A\u5A01",
+    Oman: "\u963F\u66FC",
+    Pakistan: "\u5DF4\u57FA\u65AF\u5766",
+    Palau: "\u5E15\u52B3",
+    Palestine: "\u5DF4\u52D2\u65AF\u5766",
+    Panama: "\u5DF4\u62FF\u9A6C",
+    "Papua New Guinea": "\u5DF4\u5E03\u4E9A\u65B0\u51E0\u5185\u4E9A",
+    Paraguay: "\u5DF4\u62C9\u572D",
+    Peru: "\u79D8\u9C81",
+    Pitcairn: "\u76AE\u7279\u51EF\u6069",
+    Poland: "\u6CE2\u5170",
+    Portugal: "\u8461\u8404\u7259",
+    "Puerto Rico": "\u6CE2\u591A\u9ECE\u5404",
+    Qatar: "\u5361\u5854\u5C14",
+    Reunion: "\u7559\u5C3C\u6C6A",
+    Romania: "\u7F57\u9A6C\u5C3C\u4E9A",
+    Rwanda: "\u5362\u65FA\u8FBE",
+    "Saint Barth\xE9lemy": "\u5723\u5DF4\u6CF0\u52D2\u7C73",
+    "Saint Helena": "\u5723\u8D6B\u52D2\u62FF",
+    "Saint Kitts and Nevis": "\u5723\u57FA\u8328\u548C\u5C3C\u7EF4\u65AF",
+    "Saint Lucia": "\u5723\u5362\u897F\u4E9A",
+    "Saint Martin (French part)": "\u5723\u9A6C\u4E01(\u6CD5\u5C5E)",
+    "Saint Pierre and Miquelon": "\u5723\u76AE\u57C3\u5C14\u548C\u5BC6\u514B\u9686",
+    "Saint Vincent and the Grenadines": "\u5723\u6587\u68EE\u7279\u548C\u683C\u6797\u7EB3\u4E01\u65AF",
+    Samoa: "\u8428\u6469\u4E9A",
+    "San Marino": "\u5723\u9A6C\u529B\u8BFA",
+    "Sao Tome and Principe": "\u5723\u591A\u7F8E\u548C\u666E\u6797\u897F\u6BD4",
+    "Saudi Arabia": "\u6C99\u7279\u963F\u62C9\u4F2F",
+    Senegal: "\u585E\u5185\u52A0\u5C14",
+    Serbia: "\u585E\u5C14\u7EF4\u4E9A",
+    Seychelles: "\u585E\u820C\u5C14",
+    "Sierra Leone": "\u585E\u62C9\u5229\u6602",
+    "Sint Maarten (Dutch part)": "\u5723\u9A6C\u4E01(\u8377\u5C5E)",
+    Slovakia: "\u65AF\u6D1B\u4F10\u514B",
+    Slovenia: "\u65AF\u6D1B\u6587\u5C3C\u4E9A",
+    "Solomon Islands": "\u6240\u7F57\u95E8\u7FA4\u5C9B",
+    Somalia: "\u7D22\u9A6C\u91CC",
+    "South Africa": "\u5357\u975E",
+    "South Georgia and South Sandwich Islands": "\u5357\u4E54\u6CBB\u4E9A\u548C\u5357\u6851\u5A01\u5947\u7FA4\u5C9B",
+    "South Sudan": "\u5357\u82CF\u4E39",
+    "Sri Lanka": "\u65AF\u91CC\u5170\u5361",
+    Sudan: "\u82CF\u4E39",
+    Suriname: "\u82CF\u91CC\u5357",
+    "Svalbard and Jan Mayen Islands": "\u65AF\u74E6\u5C14\u5DF4\u548C\u626C\u9A6C\u5EF6\u7FA4\u5C9B",
+    Swaziland: "\u65AF\u5A01\u58EB\u5170",
+    Syria: "\u53D9\u5229\u4E9A",
+    Tajikistan: "\u5854\u5409\u514B\u65AF\u5766",
+    Tanzania: "\u5766\u6851\u5C3C\u4E9A",
+    "Timor-Leste": "\u4E1C\u5E1D\u6C76",
+    Togo: "\u591A\u54E5",
+    Tokelau: "\u6258\u514B\u52B3",
+    Tonga: "\u6C64\u52A0",
+    "Trinidad and Tobago": "\u7279\u7ACB\u5C3C\u8FBE\u548C\u591A\u5DF4\u54E5",
+    Tunisia: "\u7A81\u5C3C\u65AF",
+    T\u00FCrkiye: "\u571F\u8033\u5176",
+    Turkmenistan: "\u571F\u5E93\u66FC\u65AF\u5766",
+    "Turks and Caicos Islands": "\u7279\u514B\u65AF\u548C\u51EF\u79D1\u65AF\u7FA4\u5C9B",
+    Tuvalu: "\u56FE\u74E6\u5362",
+    Uganda: "\u4E4C\u5E72\u8FBE",
+    Ukraine: "\u4E4C\u514B\u5170",
+    "United States": "\u7F8E\u56FD",
+    "United States Minor Outlying Islands": "\u7F8E\u56FD\u672C\u571F\u5916\u5C0F\u5C9B\u5C7F",
+    Uruguay: "\u4E4C\u62C9\u572D",
+    Uzbekistan: "\u4E4C\u5179\u522B\u514B\u65AF\u5766",
+    Vanuatu: "\u74E6\u52AA\u963F\u56FE",
+    "Vatican City": "\u68B5\u8482\u5188",
+    Venezuela: "\u59D4\u5185\u745E\u62C9",
+    "Viet Nam": "\u8D8A\u5357",
+    "Virgin Islands, British": "\u82F1\u5C5E\u7EF4\u5C14\u4EAC\u7FA4\u5C9B",
+    "Virgin Islands, U.S.": "\u7F8E\u5C5E\u7EF4\u5C14\u4EAC\u7FA4\u5C9B",
+    "Wallis and Futuna Islands": "\u74E6\u5229\u65AF\u548C\u5BCC\u56FE\u7EB3\u7FA4\u5C9B",
+    "Western Sahara": "\u897F\u6492\u54C8\u62C9",
+    Yemen: "\u4E5F\u95E8",
+    Zambia: "\u8D5E\u6BD4\u4E9A",
+    Zimbabwe: "\u6D25\u5DF4\u5E03\u97E6",
+    \u00C5land: "\u5965\u5170\u7FA4\u5C9B",
+    Alabama: "\u4E9A\u62C9\u5DF4\u9A6C\u5DDE",
+    Alaska: "\u963F\u62C9\u65AF\u52A0\u5DDE",
+    Arizona: "\u4E9A\u5229\u6851\u90A3\u5DDE",
+    Arkansas: "\u963F\u80AF\u8272\u5DDE",
+    California: "\u52A0\u5229\u798F\u5C3C\u4E9A\u5DDE",
+    Colorado: "\u79D1\u7F57\u62C9\u591A\u5DDE",
+    Connecticut: "\u5EB7\u6D85\u72C4\u683C\u5DDE",
+    Delaware: "\u7279\u62C9\u534E\u5DDE",
+    Florida: "\u4F5B\u7F57\u91CC\u8FBE\u5DDE",
+    Hawaii: "\u590F\u5A01\u5937\u5DDE",
+    Idaho: "\u7231\u8FBE\u8377\u5DDE",
+    Illinois: "\u4F0A\u5229\u8BFA\u4F0A\u5DDE",
+    Indiana: "\u5370\u7B2C\u5B89\u7EB3\u5DDE",
+    Iowa: "\u827E\u5965\u74E6\u5DDE",
+    Kansas: "\u582A\u8428\u65AF\u5DDE",
+    Kentucky: "\u80AF\u5854\u57FA\u5DDE",
+    Louisiana: "\u8DEF\u6613\u65AF\u5B89\u90A3\u5DDE",
+    Maine: "\u7F05\u56E0\u5DDE",
+    Maryland: "\u9A6C\u91CC\u5170\u5DDE",
+    Massachusetts: "\u9A6C\u8428\u8BF8\u585E\u5DDE",
+    Michigan: "\u5BC6\u6B47\u6839\u5DDE",
+    Minnesota: "\u660E\u5C3C\u82CF\u8FBE\u5DDE",
+    Mississippi: "\u5BC6\u897F\u897F\u6BD4\u5DDE",
+    Missouri: "\u5BC6\u82CF\u91CC\u5DDE",
+    Montana: "\u8499\u5927\u62FF\u5DDE",
+    Nebraska: "\u5185\u5E03\u62C9\u65AF\u52A0\u5DDE",
+    Nevada: "\u5185\u534E\u8FBE\u5DDE",
+    "New Hampshire": "\u65B0\u7F55\u5E03\u4EC0\u5C14\u5DDE",
+    "New Jersey": "\u65B0\u6CFD\u897F\u5DDE",
+    "New Mexico": "\u65B0\u58A8\u897F\u54E5\u5DDE",
+    "New York": "\u7EBD\u7EA6\u5DDE",
+    "North Carolina": "\u5317\u5361\u7F57\u6765\u7EB3\u5DDE",
+    "North Dakota": "\u5317\u8FBE\u79D1\u4ED6\u5DDE",
+    Ohio: "\u4FC4\u4EA5\u4FC4\u5DDE",
+    Oklahoma: "\u4FC4\u514B\u62C9\u4F55\u9A6C\u5DDE",
+    Oregon: "\u4FC4\u52D2\u5188\u5DDE",
+    Pennsylvania: "\u5BBE\u5915\u6CD5\u5C3C\u4E9A\u5DDE",
+    "Rhode Island": "\u7F57\u5F97\u5C9B\u5DDE",
+    "South Carolina": "\u5357\u5361\u7F57\u6765\u7EB3\u5DDE",
+    "South Dakota": "\u5357\u8FBE\u79D1\u4ED6\u5DDE",
+    Tennessee: "\u7530\u7EB3\u897F\u5DDE",
+    Texas: "\u5F97\u514B\u8428\u65AF\u5DDE",
+    Utah: "\u72B9\u4ED6\u5DDE",
+    Vermont: "\u4F5B\u8499\u7279\u5DDE",
+    Virginia: "\u5F17\u5409\u5C3C\u4E9A\u5DDE",
+    "Washington DC": "\u534E\u76DB\u987F\u7279\u533A",
+    "West Virginia": "\u897F\u5F17\u5409\u5C3C\u4E9A\u5DDE",
+    Wisconsin: "\u5A01\u65AF\u5EB7\u661F\u5DDE",
+    Wyoming: "\u6000\u4FC4\u660E\u5DDE",
+    "Armed Forces": "\u519B\u4E8B\u57FA\u5730",
+    "Armed Forces Americas": "\u7F8E\u6D32\u519B\u4E8B\u57FA\u5730",
+    "Armed Forces Pacific": "\u592A\u5E73\u6D0B\u519B\u4E8B\u57FA\u5730",
+    Alberta: "\u827E\u4F2F\u5854\u7701",
+    "British Columbia": "\u4E0D\u5217\u98A0\u54E5\u4F26\u6BD4\u4E9A\u7701",
+    Manitoba: "\u9A6C\u5C3C\u6258\u5DF4\u7701",
+    "New Brunswick": "\u65B0\u4E0D\u4F26\u745E\u514B\u7701",
+    "Newfoundland and Labrador": "\u7EBD\u82AC\u5170\u548C\u62C9\u5E03\u62C9\u591A\u7701",
+    "Northwest Territories": "\u897F\u5317\u5730\u533A",
+    "Nova Scotia": "\u65B0\u65AF\u79D1\u820D\u7701",
+    Nunavut: "\u52AA\u7EB3\u6B66\u7279\u5730\u533A",
+    Ontario: "\u5B89\u5927\u7565\u7701",
+    "Prince Edward Island": "\u7231\u5FB7\u534E\u738B\u5B50\u5C9B\u7701",
+    Quebec: "\u9B41\u5317\u514B\u7701",
+    Saskatchewan: "\u8428\u65AF\u5580\u5F7B\u6E29\u7701",
+    Yukon: "\u80B2\u7A7A\u5730\u533A",
+    "Create secret gist": "\u521B\u5EFA\u79C1\u5BC6 Gist",
+    "Create public gist": "\u521B\u5EFA\u516C\u5F00 Gist",
+    "Create gist": "\u521B\u5EFA Gist",
+    "Create new gist": "\u521B\u5EFA\u65B0 Gist",
+    "Search Gists": "\u641C\u7D22 Gist",
+    "All gists": "\u6240\u6709 Gist",
+    "Starred gists": "\u5DF2\u661F\u6807\u7684 Gist",
+    "Gist description": "Gist \u63CF\u8FF0",
+    "Gist description\u2026": "Gist \u63CF\u8FF0\u2026",
+    "Filename including extension\u2026": "\u6587\u4EF6\u540D(\u542B\u6269\u5C55\u540D)\u2026",
+    "Drop one or more files here to prefill your gist!": "\u628A\u4E00\u4E2A\u6216\u591A\u4E2A\u6587\u4EF6\u62D6\u5230\u8FD9\u91CC,\u9884\u586B\u4F60\u7684 Gist!",
+    "Instantly share code, notes, and snippets.": "\u5373\u523B\u5206\u4EAB\u4EE3\u7801\u3001\u7B14\u8BB0\u4E0E\u4EE3\u7801\u7247\u6BB5\u3002",
+    "Public gists are visible to everyone.": "\u516C\u5F00 Gist \u5BF9\u6240\u6709\u4EBA\u53EF\u89C1\u3002",
+    "Secret gists are hidden by search engines but visible to anyone you give the URL to.": "\u79C1\u5BC6 Gist \u4E0D\u88AB\u641C\u7D22\u5F15\u64CE\u6536\u5F55,\u4F46\u4EFB\u4F55\u62FF\u5230 URL \u7684\u4EBA\u90FD\u53EF\u4EE5\u8BBF\u95EE\u3002",
+    "Select a type of Gist": "\u9009\u62E9 Gist \u7C7B\u578B",
+    "Uploading your files\u2026": "\u6B63\u5728\u4E0A\u4F20\u4F60\u7684\u6587\u4EF6\u2026",
+    "Loading preview\u2026": "\u6B63\u5728\u52A0\u8F7D\u9884\u89C8\u2026",
+    "Unable to load this preview, sorry.": "\u9884\u89C8\u52A0\u8F7D\u5931\u8D25,\u62B1\u6B49\u3002",
+    "Remove File": "\u79FB\u9664\u6587\u4EF6",
+    "Edit new file": "\u7F16\u8F91\u65B0\u6587\u4EF6",
+    "Indent mode": "\u7F29\u8FDB\u6A21\u5F0F",
+    "Indent size": "\u7F29\u8FDB\u5927\u5C0F",
+    "Line wrap mode": "\u6362\u884C\u6A21\u5F0F",
+    "No wrap": "\u4E0D\u6362\u884C",
+    "Soft wrap": "\u8F6F\u6362\u884C",
+    Tabs: "Tab \u5B57\u7B26",
+    Spaces: "\u7A7A\u683C",
+    "Attach files by selecting or pasting them.": "\u9009\u62E9\u6216\u7C98\u8D34\u6587\u4EF6\u5373\u53EF\u6DFB\u52A0\u9644\u4EF6\u3002",
+    "Styling with Markdown is supported": "\u652F\u6301 Markdown \u6392\u7248",
+    "Search...": "\u641C\u7D22\u2026",
+    "All caught up!": "\u5168\u90E8\u5904\u7406\u5B8C\u6BD5!",
+    "Give dashboard feedback": "\u7ED9\u4EEA\u8868\u76D8\u53CD\u9988",
+    "Dashboard menu": "\u4EEA\u8868\u76D8\u83DC\u5355",
+    "Dashboard preview options": "\u4EEA\u8868\u76D8\u9884\u89C8\u9009\u9879",
+    "How satisfied are you with this dashboard?": "\u4F60\u5BF9\u4EEA\u8868\u76D8\u7684\u6EE1\u610F\u7A0B\u5EA6\u5982\u4F55?",
+    "Very satisfied": "\u975E\u5E38\u6EE1\u610F",
+    Satisfied: "\u6EE1\u610F",
+    Dissatisfied: "\u4E0D\u6EE1\u610F",
+    "Very dissatisfied": "\u975E\u5E38\u4E0D\u6EE1\u610F",
+    "Send feedback": "\u53D1\u9001\u53CD\u9988",
+    "What can we improve?": "\u4F60\u89C9\u5F97\u54EA\u91CC\u53EF\u4EE5\u6539\u8FDB?",
+    "Switch to classic dashboard": "\u5207\u6362\u5230\u7ECF\u5178\u4EEA\u8868\u76D8",
+    "Get started clearing your notifications": "\u5F00\u59CB\u6E05\u7406\u4F60\u7684\u901A\u77E5",
+    "Mark all read notifications as done": "\u628A\u6240\u6709\u5DF2\u8BFB\u901A\u77E5\u6807\u4E3A\u5B8C\u6210",
+    "Marking your notifications as \"done\" helps to create a more focused inbox. Don't worry - if there is new activity, you'll still be notified.": "\u628A\u901A\u77E5\u6807\u4E3A\u300C\u5B8C\u6210\u300D\u80FD\u8BA9\u6536\u4EF6\u7BB1\u66F4\u6E05\u723D\u3002\u522B\u62C5\u5FC3,\u6709\u65B0\u52A8\u6001\u65F6\u4F60\u4ECD\u4F1A\u6536\u5230\u901A\u77E5\u3002",
+    "Notifications by date": "\u6309\u65E5\u671F\u67E5\u770B\u901A\u77E5",
+    "Notification filters": "\u901A\u77E5\u7B5B\u9009\u5668",
+    "Web notifications are currently disabled. You can enable them now in your": "Web \u901A\u77E5\u5F53\u524D\u5DF2\u7981\u7528\u3002\u4F60\u53EF\u4EE5\u73B0\u5728\u5230\u4F60\u7684",
+    "notifications settings": "\u901A\u77E5\u8BBE\u7F6E \u4E2D\u542F\u7528",
+    Assigned: "\u6307\u6D3E\u7ED9\u6211",
+    Participating: "\u53C2\u4E0E\u7684",
+    "Review request": "\u5BA1\u67E5\u8BF7\u6C42",
+    "Team mentioned": "\u56E2\u961F\u63D0\u53CA",
+    Unread: "\u672A\u8BFB",
+    "\u270B Mentioned": "\u270B \u63D0\u53CA\u6211\u7684",
+    "\u{1F3AF} Assigned": "\u{1F3AF} \u6307\u6D3E\u7ED9\u6211",
+    "\u{1F440} Review requested": "\u{1F440} \u8BF7\u6C42\u5BA1\u67E5",
+    "\u{1F4AC} Participating": "\u{1F4AC} \u53C2\u4E0E\u7684",
+    "\u{1F64C} Team mentioned": "\u{1F64C} \u56E2\u961F\u63D0\u53CA",
+    Ask: "\u8BE2\u95EE",
+    "Write code": "\u7F16\u5199\u4EE3\u7801",
+    Debug: "\u8C03\u8BD5",
+    "Ask anything or type @ to add context": "\u95EE\u4EFB\u4F55\u95EE\u9898,\u6216\u8F93\u5165 @ \u6DFB\u52A0\u4E0A\u4E0B\u6587",
+    "Ask anything or type @ to add context with Copilot": "\u7528 Copilot \u95EE\u4EFB\u4F55\u95EE\u9898,\u6216\u8F93\u5165 @ \u6DFB\u52A0\u4E0A\u4E0B\u6587",
+    "Select repositories to attach to conversation": "\u9009\u62E9\u8981\u9644\u52A0\u5230\u4F1A\u8BDD\u7684\u4ED3\u5E93",
+    "That's everything we found for you, for now.": "\u76EE\u524D\u4E3A\u4F60\u627E\u5230\u7684\u5C31\u662F\u8FD9\u4E9B\u3002",
+    "Here's what we found based on your interests...": "\u6839\u636E\u4F60\u7684\u5174\u8DA3,\u4E3A\u4F60\u627E\u5230\u8FD9\u4E9B\u2026",
+    "Based on topics you've starred": "\u57FA\u4E8E\u4F60\u661F\u6807\u7684\u4E3B\u9898",
+    "Collection recommended by GitHub": "GitHub \u7CBE\u9009\u5408\u96C6",
+    "All featured topics": "\u5168\u90E8\u7CBE\u9009\u4E3B\u9898",
+    "Browse popular topics on GitHub.": "\u6D4F\u89C8 GitHub \u4E0A\u7684\u70ED\u95E8\u4E3B\u9898\u3002",
+    "Popular topics": "\u70ED\u95E8\u4E3B\u9898",
+    "Trending developers": "\u8D8B\u52BF\u5F00\u53D1\u8005",
+    "Trending repositories": "\u8D8B\u52BF\u4ED3\u5E93",
+    "See more trending developers": "\u67E5\u770B\u66F4\u591A\u8D8B\u52BF\u5F00\u53D1\u8005",
+    "See more trending repositories": "\u67E5\u770B\u66F4\u591A\u8D8B\u52BF\u4ED3\u5E93",
+    "Take a break, write some code, do what you do best.": "\u4F11\u606F\u4E00\u4E0B,\u5199\u70B9\u4EE3\u7801,\u505A\u4F60\u6700\u64C5\u957F\u7684\u4E8B\u3002",
+    "Coming soon": "\u5373\u5C06\u63A8\u51FA",
+    "Open in Copilot Chat": "\u5728 Copilot Chat \u4E2D\u6253\u5F00",
+    "Chat commands": "\u804A\u5929\u547D\u4EE4",
+    "Reacted by": "\u56DE\u5E94\u8005:",
+    "Forked from": "\u590D\u523B\u81EA",
+    "Reactions are currently unavailable": "\u8868\u6001\u529F\u80FD\u5F53\u524D\u4E0D\u53EF\u7528",
+    "This milestone has been deleted": "\u6B64\u91CC\u7A0B\u7891\u5DF2\u5220\u9664",
+    "No type": "\u65E0\u7C7B\u578B",
+    "No projects": "\u65E0\u9879\u76EE",
+    "Additional credits": "\u9644\u52A0\u989D\u5EA6",
+    Budget: "\u9884\u7B97",
+    "Budget table": "\u9884\u7B97\u8868",
+    "Chart view": "\u56FE\u8868\u89C6\u56FE",
+    "Filter by scope, repository, product or SKU": "\u6309\u8303\u56F4\u3001\u4ED3\u5E93\u3001\u4EA7\u54C1\u6216 SKU \u7B5B\u9009",
+    "Clear Filter by scope, repository, product or SKU": "\u6E05\u9664\u300C\u6309\u8303\u56F4\u3001\u4ED3\u5E93\u3001\u4EA7\u54C1\u6216 SKU \u7B5B\u9009\u300D",
+    Days: "\u5929",
+    "Each GitHub AI credit costs $0.01.": "\u6BCF\u4E2A GitHub AI \u989D\u5EA6\u82B1\u8D39 $0.01\u3002",
+    "Get usage report": "\u83B7\u53D6\u7528\u91CF\u62A5\u544A",
+    Model: "\u6A21\u578B",
+    "Model usage": "\u6A21\u578B\u7528\u91CF",
+    "Overage spend": "\u8D85\u989D\u652F\u51FA",
+    Spent: "\u5DF2\u82B1\u8D39",
+    "Scope:": "\u8303\u56F4:",
+    "Group by:": "\u5206\u7EC4\u4F9D\u636E:",
+    "Upgrade Individual Plan": "\u5347\u7EA7 Individual \u8BA1\u5212",
+    "Upgrade to Business": "\u5347\u7EA7\u5230 Business",
+    "Too many exports in progress. Please try again later.": "\u8FDB\u884C\u4E2D\u7684\u5BFC\u51FA\u8FC7\u591A,\u8BF7\u7A0D\u540E\u518D\u8BD5\u3002",
+    "This process could take a few moments depending on the quantity.": "\u89C6\u6570\u91CF\u800C\u5B9A,\u6B64\u8FC7\u7A0B\u53EF\u80FD\u9700\u8981\u4E00\u4E9B\u65F6\u95F4\u3002",
+    "No changes to display.": "\u6CA1\u6709\u53EF\u663E\u793A\u7684\u66F4\u6539\u3002",
+    "4 budgets": "4 \u4E2A\u9884\u7B97",
+    "Showing 1 to 4 of 4 budgets": "\u663E\u793A\u7B2C 1 \u5230 4 \u4E2A,\u5171 4 \u4E2A\u9884\u7B97",
+    "View actions for Actions budget for Account ismoss": "\u67E5\u770B\u8D26\u6237 ismoss \u7684 Actions \u9884\u7B97\u64CD\u4F5C",
+    "View actions for Codespaces budget for Account ismoss": "\u67E5\u770B\u8D26\u6237 ismoss \u7684 Codespaces \u9884\u7B97\u64CD\u4F5C",
+    "View actions for Git LFS budget for Account ismoss": "\u67E5\u770B\u8D26\u6237 ismoss \u7684 Git LFS \u9884\u7B97\u64CD\u4F5C",
+    "View actions for Packages budget for Account ismoss": "\u67E5\u770B\u8D26\u6237 ismoss \u7684 Packages \u9884\u7B97\u64CD\u4F5C",
+    "Budget utilization for ismoss": "ismoss \u7684\u9884\u7B97\u4F7F\u7528\u60C5\u51B5",
+    "on Sep 11": "9\u670811\u65E5",
+    "on Apr 21": "4\u670821\u65E5",
+    "on Aug 23": "8\u670823\u65E5",
+    "on Feb 23": "2\u670823\u65E5",
+    "OAuth access token": "OAuth \u8BBF\u95EE\u4EE4\u724C",
+    "OAuth app": "OAuth \u5E94\u7528",
+    "ending in": "\u7ED3\u5C3E\u4E3A",
+    "for the": ",\u7528\u4E8E",
+    "to the": "\u5230",
+    "Regenerated a token for": "\u91CD\u65B0\u751F\u6210\u4E86\u4EE4\u724C,\u5E94\u7528:",
+    "Created a token for": "\u521B\u5EFA\u4E86\u4EE4\u724C,\u5E94\u7528:",
+    "Updated a token for": "\u66F4\u65B0\u4E86\u4EE4\u724C,\u5E94\u7528:",
+    "Search audit logs": "\u641C\u7D22\u5BA1\u8BA1\u65E5\u5FD7",
+    "Filter audit logs": "\u7B5B\u9009\u5BA1\u8BA1\u65E5\u5FD7",
+    "Personal access token activity": "\u4E2A\u4EBA\u8BBF\u95EE\u4EE4\u724C\u52A8\u6001",
+    "New Device Used": "\u6709\u65B0\u8BBE\u5907\u767B\u5F55",
+    "User signed in from an unrecognized device.": "\u7528\u6237\u4ECE\u672A\u8BC6\u522B\u7684\u8BBE\u5907\u767B\u5F55\u3002",
+    "Permission updates requested.": "\u5DF2\u8BF7\u6C42\u66F4\u65B0\u6743\u9650\u3002",
+    "Loading audit log entries\u2026": "\u6B63\u5728\u52A0\u8F7D\u5BA1\u8BA1\u65E5\u5FD7\u2026",
+    "Past day": "\u8FC7\u53BB\u4E00\u5929",
+    "Past week": "\u8FC7\u53BB\u4E00\u5468",
+    "Past month": "\u8FC7\u53BB\u4E00\u4E2A\u6708",
+    "Past year": "\u8FC7\u53BB\u4E00\u5E74",
+    "Oldest to newest": "\u7531\u65E7\u5230\u65B0",
+    "Logged in": "\u5DF2\u767B\u5F55",
+    "GitHub System": "GitHub \u7CFB\u7EDF",
+    "Added the following repositories to the": "\u5DF2\u5C06\u4EE5\u4E0B\u4ED3\u5E93\u6DFB\u52A0\u5230",
+    "Created the repository": "\u521B\u5EFA\u4E86\u4ED3\u5E93",
+    "Repository management": "\u4ED3\u5E93\u7BA1\u7406",
+    "Copilot activity": "Copilot \u52A8\u6001",
+    "Recent events": "\u6700\u8FD1\u4E8B\u4EF6",
+    "View all events created yesterday": "\u67E5\u770B\u6628\u5929\u521B\u5EFA\u7684\u6240\u6709\u4E8B\u4EF6",
+    "Yesterday's activity": "\u6628\u5929\u7684\u52A8\u6001",
+    "Filter activity": "\u7B5B\u9009\u52A8\u6001",
+    "All actions": "\u5168\u90E8\u64CD\u4F5C",
+    "All apps": "\u5168\u90E8\u5E94\u7528",
+    App: "\u5E94\u7528",
+    Agent: "\u4EE3\u7406",
+    "integration via the API:": "\u901A\u8FC7 API \u96C6\u6210:",
+    "GitHub highly recommends that you keep two-factor authentication enabled on your account. If you need to change your configuration, or generate new recovery codes, you can do that in the settings below.": "GitHub \u5F3A\u70C8\u5EFA\u8BAE\u4F60\u7684\u8D26\u6237\u4FDD\u6301\u53CC\u56E0\u7D20\u8BA4\u8BC1\u5F00\u542F\u3002\u5982\u9700\u66F4\u6539\u914D\u7F6E\u6216\u751F\u6210\u65B0\u7684\u6062\u590D\u7801,\u53EF\u5728\u4E0B\u65B9\u8BBE\u7F6E\u4E2D\u8FDB\u884C\u3002",
+    "Learn more about two-factor authentication": "\u4E86\u89E3\u53CC\u56E0\u7D20\u8BA4\u8BC1",
+    "Learn more about strong passwords": "\u4E86\u89E3\u5F3A\u5BC6\u7801",
+    "Search by username, full name, or public email": "\u6309\u7528\u6237\u540D\u3001\u5168\u540D\u6216\u516C\u5F00\u90AE\u7BB1\u641C\u7D22",
+    "You have not blocked anyone.": "\u4F60\u8FD8\u6CA1\u6709\u5C4F\u853D\u4EFB\u4F55\u4EBA\u3002",
+    "Find blocked users": "\u67E5\u627E\u88AB\u5C4F\u853D\u7684\u7528\u6237",
+    "No Preference": "\u65E0\u504F\u597D",
+    OR: "\u6216",
+    "Commit email:": "\u63D0\u4EA4\u90AE\u7BB1:",
+    "Select email to become backup": "\u9009\u62E9\u8981\u8BBE\u4E3A\u5907\u7528\u90AE\u7BB1\u7684\u90AE\u7BB1",
+    "Select email to become primary": "\u9009\u62E9\u8981\u8BBE\u4E3A\u4E3B\u90AE\u7BB1\u7684\u90AE\u7BB1",
+    "Billing updates": "\u8D26\u5355\u66F4\u65B0",
+    "There was an error creating your SavedReply.": "\u521B\u5EFA\u5DF2\u4FDD\u5B58\u56DE\u590D\u65F6\u51FA\u9519\u3002",
+    "Maximum 250 characters. Please don't include any personal information such as legal names or email addresses. Markdown is supported. This note will only be visible to you": "\u6700\u591A 250 \u5B57\u7B26\u3002\u8BF7\u52FF\u5305\u542B\u6CD5\u5B9A\u59D3\u540D\u6216\u90AE\u7BB1\u5730\u5740\u7B49\u4E2A\u4EBA\u4FE1\u606F\u3002\u652F\u6301 Markdown\u3002\u6B64\u5907\u6CE8\u4EC5\u4F60\u81EA\u5DF1\u53EF\u89C1",
+    "We will": "\u6211\u4EEC\u5C06",
+    "will not": "\u4E0D\u4F1A",
+    ", along with all of your forks, wikis, issues, pull requests, and GitHub Pages sites.": ",\u4EE5\u53CA\u4F60\u7684\u6240\u6709\u590D\u523B\u3001Wiki\u3001\u8BAE\u9898\u3001PR \u548C GitHub Pages \u7AD9\u70B9\u3002",
+    "You will no longer be billed, and after 90 days your username will be available to anyone on GitHub.": "\u6211\u4EEC\u5C06\u4E0D\u518D\u5411\u4F60\u6536\u8D39,90 \u5929\u540E\u4F60\u7684\u7528\u6237\u540D\u5C06\u5BF9 GitHub \u4E0A\u7684\u4EFB\u4F55\u4EBA\u53EF\u7528\u3002",
+    "create redirects for your repositories (web and git access).": "\u4E3A\u4F60\u7684\u4ED3\u5E93\u521B\u5EFA\u91CD\u5B9A\u5411(Web \u548C git \u8BBF\u95EE)\u3002",
+    "designated below": "(\u5373\u4E0B\u6587\u6307\u5B9A\u8005)",
+    ", in the event of my death. I understand that this appointment of a successor does not override legally binding next-of-kin rules or estate laws of any relevant jurisdiction, and does not create a binding will.": ",\u5728\u6211\u8EAB\u6545\u540E\u63A5\u624B\u3002\u6211\u4E86\u89E3\u6B64\u7EE7\u4EFB\u8005\u7684\u6307\u5B9A\u4E0D\u8986\u76D6\u4EFB\u4F55\u53F8\u6CD5\u8F96\u533A\u5177\u6709\u6CD5\u5F8B\u7EA6\u675F\u529B\u7684\u6700\u8FD1\u4EB2\u5C5E\u89C4\u5219\u6216\u9057\u4EA7\u6CD5,\u4E5F\u4E0D\u6784\u6210\u5177\u6709\u7EA6\u675F\u529B\u7684\u9057\u5631\u3002",
+    "Designate Successor": "\u6307\u5B9A\u7EE7\u4EFB\u8005",
+    "Choose which repositories Copilot in the cloud should be enabled in. Cloud will only be an environment option where it is enabled for the repository and in the Copilot license policies.": "\u9009\u62E9\u5728\u54EA\u4E9B\u4ED3\u5E93\u542F\u7528 Copilot in the cloud\u3002\u53EA\u6709\u8BE5\u4ED3\u5E93\u548C Copilot \u8BB8\u53EF\u7B56\u7565\u90FD\u542F\u7528\u7684\u5730\u65B9,\u4E91\u7AEF\u624D\u4F1A\u4F5C\u4E3A\u73AF\u5883\u9009\u9879\u51FA\u73B0\u3002",
+    "Use Copilot on GitHub.com and GitHub Mobile. Start and continue secure cloud sessions across supported Copilot surfaces. This policy replaces the previous Copilot Chat in GitHub, Copilot Chat in GitHub Mobile, and Cloud Agent policies.": "\u5728 GitHub.com \u4E0E GitHub Mobile \u4E0A\u4F7F\u7528 Copilot\u3002\u5728\u53D7\u652F\u6301\u7684 Copilot \u754C\u9762\u95F4\u5F00\u59CB\u5E76\u5EF6\u7EED\u5B89\u5168\u7684\u4E91\u4F1A\u8BDD\u3002\u6B64\u7B56\u7565\u53D6\u4EE3\u4E4B\u524D\u7684\u300EGitHub \u4E2D\u7684 Copilot Chat\u300F\u300EGitHub Mobile \u4E2D\u7684 Copilot Chat\u300F\u4E0E\u300E\u4E91\u7AEF\u4EE3\u7406\u300F\u7B56\u7565\u3002",
+    "From researching a repository to reviewing and merging a pull request, Copilot works in a secure, isolated cloud environment. Delegate work to an agent, freeing you to focus on the creative, complex, and high-impact work that matters most.": "\u4ECE\u8C03\u7814\u4ED3\u5E93\u5230\u5BA1\u67E5\u4E0E\u5408\u5E76 PR,Copilot \u90FD\u5728\u5B89\u5168\u3001\u9694\u79BB\u7684\u4E91\u73AF\u5883\u4E2D\u5DE5\u4F5C\u3002\u628A\u5DE5\u4F5C\u59D4\u6258\u7ED9\u4EE3\u7406,\u8BA9\u4F60\u4E13\u6CE8\u4E8E\u6700\u5177\u521B\u9020\u6027\u3001\u590D\u6742\u4E14\u9AD8\u5F71\u54CD\u7684\u91CD\u8981\u5DE5\u4F5C\u3002",
+    "Review code and manage pull requests": "\u5BA1\u67E5\u4EE3\u7801\u5E76\u7BA1\u7406 PR",
+    "Set policy to default workflow token permission to read for": "\u5C06\u4EE5\u4E0B\u5BF9\u8C61\u7684\u9ED8\u8BA4\u5DE5\u4F5C\u6D41\u4EE4\u724C\u6743\u9650\u7B56\u7565\u8BBE\u4E3A\u8BFB\u53D6:",
+    "You're about to enable Dependabot alerts on all your repositories. Alerts require the dependency graph, so we'll also turn that on for all repositories. No notifications will be sent while Dependabot alerts are being enabled.": "\u4F60\u5373\u5C06\u5728\u4F60\u7684\u6240\u6709\u4ED3\u5E93\u4E0A\u542F\u7528 Dependabot \u8B66\u62A5\u3002\u8B66\u62A5\u9700\u8981\u5148\u542F\u7528\u4F9D\u8D56\u5173\u7CFB\u56FE,\u6211\u4EEC\u4F1A\u4E3A\u6240\u6709\u4ED3\u5E93\u4E00\u5E76\u5F00\u542F\u3002\u542F\u7528\u8FC7\u7A0B\u4E2D\u4E0D\u4F1A\u53D1\u9001\u4EFB\u4F55\u901A\u77E5\u3002",
+    "You're about to enable Dependabot security updates on all your repositories. Dependabot security updates require the dependency graph and Dependabot alerts, so we'll also turn that on for all repositories.": "\u4F60\u5373\u5C06\u5728\u4F60\u7684\u6240\u6709\u4ED3\u5E93\u4E0A\u542F\u7528 Dependabot \u5B89\u5168\u66F4\u65B0\u3002\u5B83\u9700\u8981\u4F9D\u8D56\u5173\u7CFB\u56FE\u548C Dependabot \u8B66\u62A5,\u6211\u4EEC\u4F1A\u4E3A\u6240\u6709\u4ED3\u5E93\u4E00\u5E76\u5F00\u542F\u3002",
+    "You're about to enable grouped security updates on all your repositories. Grouped security updates require the dependency graph, Dependabot alerts, Dependabot security updates and Dependabot security updates, so we'll also turn that on for all repositories.": "\u4F60\u5373\u5C06\u5728\u4F60\u7684\u6240\u6709\u4ED3\u5E93\u4E0A\u542F\u7528\u5206\u7EC4\u5B89\u5168\u66F4\u65B0\u3002\u5B83\u9700\u8981\u4F9D\u8D56\u5173\u7CFB\u56FE\u3001Dependabot \u8B66\u62A5\u3001Dependabot \u5B89\u5168\u66F4\u65B0\u4E0E Dependabot \u5B89\u5168\u66F4\u65B0,\u6211\u4EEC\u4F1A\u4E3A\u6240\u6709\u4ED3\u5E93\u4E00\u5E76\u5F00\u542F\u3002",
+    "Parent directory": "\u4E0A\u7EA7\u76EE\u5F55",
+    "File metadata and controls": "\u6587\u4EF6\u5143\u6570\u636E\u4E0E\u63A7\u5236",
+    "File view": "\u6587\u4EF6\u89C6\u56FE",
+    "Ask Copilot about this file": "\u5C31\u6B64\u6587\u4EF6\u8BE2\u95EE Copilot",
+    "More edit options": "\u66F4\u591A\u7F16\u8F91\u9009\u9879",
+    "Customization settings": "\u81EA\u5B9A\u4E49\u8BBE\u7F6E",
+    "Please follow this repository's": "\u8BF7\u9075\u5FAA\u6B64\u4ED3\u5E93\u7684",
+    "Contributions per week to": "\u6BCF\u5468\u8D21\u732E \u2014 ",
+    "Last 3 months": "\u6700\u8FD1 3 \u4E2A\u6708",
+    "Start of selected range": "\u6240\u9009\u8303\u56F4\u8D77\u70B9",
+    "End of selected range": "\u6240\u9009\u8303\u56F4\u7EC8\u70B9",
+    "Adjust time span": "\u8C03\u6574\u65F6\u95F4\u8DE8\u5EA6",
+    "Axis zoom": "\u5750\u6807\u8F74\u7F29\u653E",
+    "Commits over time Axis zoom": "\u63D0\u4EA4\u8D8B\u52BF\u56FE\u7F29\u653E",
+    "Dependency Insights menu": "\u4F9D\u8D56\u6D1E\u5BDF\u83DC\u5355",
+    "Track this repository's": "\u8DDF\u8E2A\u6B64\u4ED3\u5E93\u7684",
+    "Enable the dependency graph": "\u542F\u7528\u4F9D\u8D56\u5173\u7CFB\u56FE",
+    "Branches navigation": "\u5206\u652F\u5BFC\u822A",
+    "Check status": "\u68C0\u67E5\u72B6\u6001",
+    "Action menu": "\u64CD\u4F5C\u83DC\u5355",
+    "Branch menu": "\u5206\u652F\u83DC\u5355",
+    "Branch selector": "\u5206\u652F\u9009\u62E9\u5668",
+    "User selector": "\u7528\u6237\u9009\u62E9\u5668",
+    "Wiki pages": "Wiki \u9875\u9762",
+    "Find a page or section": "\u67E5\u627E\u9875\u9762\u6216\u7AE0\u8282",
+    "Clone this wiki locally": "\u5728\u672C\u5730\u514B\u9686\u6B64 Wiki",
+    "Clone URL for this wiki": "\u6B64 Wiki \u7684\u514B\u9686 URL",
+    "View security advisories": "\u67E5\u770B\u5B89\u5168\u516C\u544A",
+    "Enable vulnerability reporting": "\u542F\u7528\u6F0F\u6D1E\u62A5\u544A",
+    "Needs setup": "\u9700\u8981\u8BBE\u7F6E",
+    "Set up code scanning": "\u8BBE\u7F6E\u4EE3\u7801\u626B\u63CF",
+    "Enable in settings": "\u5230\u8BBE\u7F6E\u4E2D\u542F\u7528",
+    "Customize your pins": "\u81EA\u5B9A\u4E49\u7F6E\u9876",
+    "Edit pinned items": "\u7F16\u8F91\u7F6E\u9876\u9879",
+    "Save pins": "\u4FDD\u5B58\u7F6E\u9876",
+    "Create your first list": "\u521B\u5EFA\u4F60\u7684\u7B2C\u4E00\u4E2A\u5217\u8868",
+    "Recently starred": "\u6700\u8FD1\u661F\u6807",
+    "Recently active": "\u6700\u8FD1\u6D3B\u8DC3",
+    "Showing results": "\u663E\u793A\u7ED3\u679C",
+    "View all repositories": "\u67E5\u770B\u6240\u6709\u4ED3\u5E93",
+    "Top languages": "\u4E3B\u8981\u8BED\u8A00",
+    "Most used topics": "\u6700\u5E38\u7528\u4E3B\u9898",
+    "GitHub Sponsor": "GitHub \u8D5E\u52A9",
+    "Developer Program Member": "\u5F00\u53D1\u8005\u8BA1\u5212\u6210\u5458",
+    "Next page": "\u4E0B\u4E00\u9875",
+    "Get started with GitHub Packages": "\u5F00\u59CB\u4F7F\u7528 GitHub Packages",
+    "Choose a registry": "\u9009\u62E9\u4E00\u4E2A registry",
+    "Learn more about Apache Maven": "\u4E86\u89E3 Apache Maven",
+    "Learn more about NuGet": "\u4E86\u89E3 NuGet",
+    "Learn more about RubyGems": "\u4E86\u89E3 RubyGems",
+    "Learn more about npm": "\u4E86\u89E3 npm",
+    "Learn more about Containers": "\u4E86\u89E3\u5BB9\u5668\u955C\u50CF",
+    "Create your first GitHub project": "\u521B\u5EFA\u4F60\u7684\u7B2C\u4E00\u4E2A GitHub \u9879\u76EE",
+    "We've verified that the organization": "\u6211\u4EEC\u5DF2\u9A8C\u8BC1\u8BE5\u7EC4\u7EC7",
+    "Learn more about verified organizations": "\u4E86\u89E3\u7EC4\u7EC7\u9A8C\u8BC1",
+    "See all industries": "\u67E5\u770B\u6240\u6709\u884C\u4E1A",
+    "Given back to our maintainers": "\u56DE\u9988\u7EF4\u62A4\u8005",
+    "Regions supported globally": "\u652F\u6301\u7684\u5168\u7403\u533A\u57DF",
+    "Organizations sponsoring": "\u53C2\u4E0E\u8D5E\u52A9\u7684\u7EC4\u7EC7",
+    "For maintainers": "\u7ED9\u7EF4\u62A4\u8005",
+    "For sponsors": "\u7ED9\u8D5E\u52A9\u8005",
+    "Learn about invoiced billing": "\u4E86\u89E3\u53D1\u7968\u5F0F\u8D26\u5355",
+    "Help open source thrive": "\u5E2E\u52A9\u5F00\u6E90\u84EC\u52C3\u53D1\u5C55",
+    "Frequently Asked Questions": "\u5E38\u89C1\u95EE\u9898",
+    "Contribution settings": "\u8D21\u732E\u56FE\u8BBE\u7F6E",
+    "Private contributions": "\u79C1\u6709\u8D21\u732E",
+    "Activity overview": "\u6D3B\u52A8\u6982\u89C8",
+    "Skip to contributions year list": "\u8DF3\u5230\u8D21\u732E\u5E74\u4EFD\u5217\u8868",
+    "GitHub profile guide": "GitHub \u4E3B\u9875\u6307\u5357",
+    "Open Repository filters": "\u6253\u5F00\u4ED3\u5E93\u7B5B\u9009\u5668",
+    "Repository filters": "\u4ED3\u5E93\u7B5B\u9009\u5668",
+    "Repository views": "\u4ED3\u5E93\u89C6\u56FE",
+    "Repositories list display density": "\u4ED3\u5E93\u5217\u8868\u663E\u793A\u5BC6\u5EA6",
+    "Close all open issues, pull requests, and discussions opened by this user": "\u5173\u95ED\u8BE5\u7528\u6237\u53D1\u8D77\u7684\u6240\u6709\u672A\u5173\u95ED\u8BAE\u9898\u3001PR \u548C\u8BA8\u8BBA",
+    "View profile and more": "\u67E5\u770B\u4E3B\u9875\u53CA\u66F4\u591A",
+    "Enable Vigilant mode": "\u542F\u7528\u8B66\u60D5\u6A21\u5F0F",
+    "Your GitHub profile": "\u4F60\u7684 GitHub \u4E3B\u9875",
+    "View advanced search syntax": "\u67E5\u770B\u9AD8\u7EA7\u641C\u7D22\u8BED\u6CD5",
+    "Learn more about organizations": "\u4E86\u89E3\u7EC4\u7EC7",
+    "Read more about viewing contributions on your profile": "\u8FDB\u4E00\u6B65\u4E86\u89E3\u5982\u4F55\u5728\u4E3B\u9875\u4E0A\u67E5\u770B\u8D21\u732E",
+    "Issues sidebar navigation": "\u8BAE\u9898\u4FA7\u8FB9\u680F\u5BFC\u822A",
+    "Open Issues sidebar navigation": "\u6253\u5F00\u8BAE\u9898\u4FA7\u8FB9\u680F\u5BFC\u822A",
+    "Filter by projects": "\u6309\u9879\u76EE\u7B5B\u9009",
+    "Filter by milestones": "\u6309\u91CC\u7A0B\u7891\u7B5B\u9009",
+    "Filter issues by state": "\u6309\u72B6\u6001\u7B5B\u9009\u8BAE\u9898",
+    "Issue list controls": "\u8BAE\u9898\u5217\u8868\u63A7\u4EF6",
+    "Filter by labels": "\u6309\u6807\u7B7E\u7B5B\u9009",
+    "Issues display density": "\u8BAE\u9898\u5217\u8868\u663E\u793A\u5BC6\u5EA6",
+    "Pull requests navigation": "PR \u5BFC\u822A",
+    "Pull request filters": "PR \u7B5B\u9009\u5668",
+    "Filter by reviews": "\u6309\u5BA1\u67E5\u7B5B\u9009",
+    "Filter by assignee": "\u6309\u7ECF\u529E\u4EBA\u7B5B\u9009",
+    "Pull requests display density": "PR \u5217\u8868\u663E\u793A\u5BC6\u5EA6",
+    "Issue body actions": "\u8BAE\u9898\u6B63\u6587\u64CD\u4F5C",
+    "Issue options": "\u8BAE\u9898\u9009\u9879",
+    "Pull request options": "PR \u9009\u9879",
+    "View closed issues": "\u67E5\u770B\u5DF2\u5173\u95ED\u7684\u8BAE\u9898",
+    "No pull requests found, try a different filter.": "\u672A\u627E\u5230 PR,\u8BF7\u5C1D\u8BD5\u5176\u4ED6\u7B5B\u9009\u6761\u4EF6\u3002",
+    "All workflows": "\u5168\u90E8\u5DE5\u4F5C\u6D41",
+    "Workflow runs": "\u5DE5\u4F5C\u6D41\u8FD0\u884C",
+    "Actions management": "Actions \u7BA1\u7406",
+    "Usage metrics": "\u7528\u91CF\u6307\u6807",
+    "Performance metrics": "\u6027\u80FD\u6307\u6807",
+    "Showing runs from all workflows": "\u663E\u793A\u5168\u90E8\u5DE5\u4F5C\u6D41\u7684\u8FD0\u884C",
+    "Search runs": "\u641C\u7D22\u8FD0\u884C",
+    "Workflow runs results": "\u5DE5\u4F5C\u6D41\u8FD0\u884C\u7ED3\u679C",
+    "Workflow run filters": "\u5DE5\u4F5C\u6D41\u8FD0\u884C\u7B5B\u9009\u5668",
+    "Repository projects": "\u4ED3\u5E93\u9879\u76EE",
+    "Loading projects": "\u6B63\u5728\u52A0\u8F7D\u9879\u76EE",
+    "More items": "\u66F4\u591A\u9879\u76EE",
+    "Select type": "\u9009\u62E9\u7C7B\u578B",
+    "Select language": "\u9009\u62E9\u8BED\u8A00",
+    "Select order": "\u9009\u62E9\u6392\u5E8F",
+    "Can be sponsored": "\u53EF\u63A5\u53D7\u8D5E\u52A9",
+    "Write a description": "\u5199\u4E2A\u63CF\u8FF0",
+    "Search stars": "\u641C\u7D22\u661F\u6807",
+    "Select a spoken language": "\u9009\u62E9\u81EA\u7136\u8BED\u8A00",
+    "Filter spoken languages": "\u7B5B\u9009\u81EA\u7136\u8BED\u8A00",
+    "Filter by spoken language": "\u6309\u81EA\u7136\u8BED\u8A00\u7B5B\u9009",
+    "Filter languages": "\u7B5B\u9009\u8BED\u8A00",
+    "Type or choose a language": "\u8F93\u5165\u6216\u9009\u62E9\u8BED\u8A00",
+    "Unknown languages": "\u672A\u77E5\u8BED\u8A00",
+    "All languages": "\u5168\u90E8\u8BED\u8A00",
+    "External links": "\u5916\u90E8\u94FE\u63A5",
+    "Open Actions": "\u6253\u5F00 Actions",
+    "Project type": "\u9879\u76EE\u7C7B\u578B",
+    "All, Project type": "\u5168\u90E8,\u9879\u76EE\u7C7B\u578B",
+    "Weekly from": "\u6BCF\u5468,\u81EA",
+    "Please upgrade to the latest": "\u8BF7\u5347\u7EA7\u5230\u6700\u65B0\u7248",
+    "Navigation menu": "\u5BFC\u822A\u83DC\u5355",
+    "Site navigation": "\u7AD9\u70B9\u5BFC\u822A",
+    "Explore navigation": "\u63A2\u7D22\u5BFC\u822A",
+    "Marketplace categories": "Marketplace \u5206\u7C7B",
+    "Marketplace navigation": "Marketplace \u5BFC\u822A",
+    "Open Marketplace categories": "\u6253\u5F00 Marketplace \u5206\u7C7B",
+    "View recommended or recent marketplace listings": "\u67E5\u770B\u63A8\u8350\u6216\u6700\u8FD1\u7684 Marketplace \u5217\u8868",
+    "View recommended or recent marketplace listings navigation": "\u67E5\u770B\u63A8\u8350\u6216\u6700\u8FD1\u7684 Marketplace \u5217\u8868\u5BFC\u822A",
+    "Search in GitHub Marketplace": "\u5728 GitHub Marketplace \u4E2D\u641C\u7D22",
+    "Search for apps and actions": "\u641C\u7D22\u5E94\u7528\u4E0E Actions",
+    "Enhance your workflow with extensions": "\u7528\u6269\u5C55\u589E\u5F3A\u4F60\u7684\u5DE5\u4F5C\u6D41",
+    "Tools from the community and partners to simplify tasks and automate processes": "\u6765\u81EA\u793E\u533A\u4E0E\u5408\u4F5C\u4F19\u4F34\u7684\u5DE5\u5177,\u7B80\u5316\u4EFB\u52A1\u3001\u81EA\u52A8\u5316\u6D41\u7A0B",
+    "Back to GitHub": "\u8FD4\u56DE GitHub",
+    "Cookie Settings": "Cookie \u8BBE\u7F6E",
+    "Accessibility Statement": "\u65E0\u969C\u788D\u58F0\u660E",
+    "Brand Guidelines": "\u54C1\u724C\u6307\u5357",
+    "Privacy Policy": "\u9690\u79C1\u653F\u7B56",
+    "Terms of Use": "\u4F7F\u7528\u6761\u6B3E",
+    "Dispute procedures": "\u4E89\u8BAE\u5904\u7406",
+    "About ORCID": "\u5173\u4E8E ORCID",
+    "ORCID Help Center": "ORCID \u5E2E\u52A9\u4E2D\u5FC3",
+    "The text of this website is published under a": "\u672C\u7F51\u7AD9\u6587\u672C\u4EE5",
+    "CC0 license.": "CC0 \u8BB8\u53EF\u8BC1\u53D1\u5E03\u3002",
+    "CC0license (opens in a new tab)": "CC0 \u8BB8\u53EF\u8BC1(\u5728\u65B0\u6807\u7B7E\u9875\u6253\u5F00)",
+    "No content": "\u65E0\u5185\u5BB9",
+    'For more help, read our article "': "\u66F4\u591A\u4FE1\u606F\u8BF7\u9605\u8BFB\u6211\u4EEC\u7684\u6587\u7AE0\u300C",
+    "You can use the": "\u4F60\u53EF\u4EE5\u4F7F\u7528",
+    "a merge setting": "\u5408\u5E76\u8BBE\u7F6E",
+    "on the": "\u5728",
+    "Make sure it's": "\u8BF7\u786E\u4FDD",
+    "Press the": "\u6309",
+    "Change the": "\u66F4\u6539",
+    "key moving focus.": "\u952E\u7684\u7126\u70B9\u79FB\u52A8\u3002",
+    "with a GIF, JPEG, JPG, MOV, MP4, PNG, SVG, WEBM or WEBP.": ",\u4E14\u7C7B\u578B\u987B\u4E3A GIF\u3001JPEG\u3001JPG\u3001MOV\u3001MP4\u3001PNG\u3001SVG\u3001WEBM \u6216 WEBP\u3002",
+    "with a file that's not empty.": ",\u4E14\u6587\u4EF6\u4E0D\u80FD\u4E3A\u7A7A\u3002",
+    "with another file.": ",\u8BF7\u6539\u7528\u5176\u4ED6\u6587\u4EF6\u3002",
+    "Try again with GIF, JPEG, JPG, MOV, MP4, PNG, SVG, WEBM, WEBP, BMP, C, COPILOTMD, CPP, CPUPROFILE, CS, CSS, CSV, DEBUG, DMP, DOC, DOCX, DRAWIO, EML, FODG, FODP, FODS, FODT, GZ, HTM, HTML, IPYNB, JAVA, JS, JSON, JSONC, LOG, MD, MP3, MSG, ODF, ODG, ODP, ODS, ODT, PATCH, PDB, PDF, PHP, PPTX, PY, RTF, SH, SQL, TGZ, TIF, TIFF, TS, TSV, TSX, TXT, WAV, XLS, XLSM, XLSX, XML, YAML, YML or ZIP.": "\u8BF7\u91CD\u8BD5,\u652F\u6301\u7684\u6587\u4EF6\u7C7B\u578B:GIF\u3001JPEG\u3001JPG\u3001MOV\u3001MP4\u3001PNG\u3001SVG\u3001WEBM\u3001WEBP\u3001BMP\u3001C\u3001COPILOTMD\u3001CPP\u3001CPUPROFILE\u3001CS\u3001CSS\u3001CSV\u3001DEBUG\u3001DMP\u3001DOC\u3001DOCX\u3001DRAWIO\u3001EML\u3001FODG\u3001FODP\u3001FODS\u3001FODT\u3001GZ\u3001HTM\u3001HTML\u3001IPYNB\u3001JAVA\u3001JS\u3001JSON\u3001JSONC\u3001LOG\u3001MD\u3001MP3\u3001MSG\u3001ODF\u3001ODG\u3001ODP\u3001ODS\u3001ODT\u3001PATCH\u3001PDB\u3001PDF\u3001PHP\u3001PPTX\u3001PY\u3001RTF\u3001SH\u3001SQL\u3001TGZ\u3001TIF\u3001TIFF\u3001TS\u3001TSV\u3001TSX\u3001TXT\u3001WAV\u3001XLS\u3001XLSM\u3001XLSX\u3001XML\u3001YAML\u3001YML \u6216 ZIP\u3002",
+    "Use Control+Shift+m to toggle the tab key moving focus.": "\u4F7F\u7528 Control+Shift+m \u5207\u6362 Tab \u952E\u7684\u7126\u70B9\u79FB\u52A8\u3002",
+    "control shift and V": "control shift \u548C V",
+    settings: "\u8BBE\u7F6E",
+    "View changelog \u2192": "\u67E5\u770B\u66F4\u65B0\u65E5\u5FD7 \u2192",
+    "Last pushed": "\u6700\u8FD1\u63A8\u9001",
+    ascending: "\u5347\u5E8F",
+    descending: "\u964D\u5E8F",
+    "The Download": "The Download \u901A\u8BAF",
+    "Get the latest developer and open source news": "\u83B7\u53D6\u6700\u65B0\u7684\u5F00\u53D1\u8005\u4E0E\u5F00\u6E90\u8D44\u8BAF",
+    "Loading usage data...": "\u6B63\u5728\u52A0\u8F7D\u7528\u91CF\u6570\u636E\u2026",
+    "No usage data found for the selected filters.": "\u6240\u9009\u7B5B\u9009\u6761\u4EF6\u4E0B\u6CA1\u6709\u7528\u91CF\u6570\u636E\u3002"
   };
 
   // src/locales/glossary.json
@@ -4446,7 +5088,10 @@
     Playwright: "Playwright",
     "JavaScript / TypeScript": "JavaScript / TypeScript",
     "Swift *": "Swift *",
-    "/docs": "/docs"
+    "/docs": "/docs",
+    IDE: "IDE",
+    "Node.js": "Node.js",
+    "ORCID.org": "ORCID.org"
   };
 
   // src/core/collector.ts
@@ -5615,6 +6260,182 @@
     (s) => {
       const m = /^(\d+) protection rules?$/.exec(s);
       if (m) return `${m[1]} \u6761\u4FDD\u62A4\u89C4\u5219`;
+      return null;
+    },
+    // ===== 2026-10-24 晚二批：全站 78 页扫查 =====
+    // 'Good evening, ismoss!' → '晚上好, ismoss!'
+    (s) => {
+      const m = /^Good (morning|afternoon|evening), ([\w.-]+)!$/.exec(s);
+      if (m) {
+        const part = m[1] === "morning" ? "\u65E9\u4E0A" : m[1] === "afternoon" ? "\u4E0B\u5348" : "\u665A\u4E0A";
+        return `${part}\u597D, ${m[2]}!`;
+      }
+      return null;
+    },
+    // 'Page 3' → '第 3 页'
+    (s) => {
+      const m = /^Page (\d+)$/.exec(s);
+      if (m) return `\u7B2C ${m[1]} \u9875`;
+      return null;
+    },
+    // 'Show 1 more topic' → '显示另外 1 个主题'
+    (s) => {
+      const m = /^Show (\d+) more topics?$/.exec(s);
+      if (m) return `\u663E\u793A\u53E6\u5916 ${m[1]} \u4E2A\u4E3B\u9898`;
+      return null;
+    },
+    // 'Pin owner/repo' / 'Pin owner/repo to your profile'
+    (s) => {
+      const m = /^Pin ([\w.-]+\/[\w.-]+) to your profile$/.exec(s);
+      if (m) return `\u5C06 ${m[1]} \u7F6E\u9876\u5230\u4F60\u7684\u4E3B\u9875`;
+      return null;
+    },
+    (s) => {
+      const m = /^Pin ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `\u7F6E\u9876 ${m[1]}`;
+      return null;
+    },
+    // 'Follow abraham' / 'Unfollow abraham'
+    (s) => {
+      const m = /^Unfollow ([\w.-]+)$/.exec(s);
+      if (m) return `\u53D6\u6D88\u5173\u6CE8 ${m[1]}`;
+      return null;
+    },
+    (s) => {
+      const m = /^Follow ([\w.-]+)$/.exec(s);
+      if (m) return `\u5173\u6CE8 ${m[1]}`;
+      return null;
+    },
+    // 'Sponsor isaacs/github'
+    (s) => {
+      const m = /^Sponsor ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `\u8D5E\u52A9 ${m[1]}`;
+      return null;
+    },
+    // 'Commit 64eb419' → '提交 64eb419'
+    (s) => {
+      const m = /^Commit ([0-9a-f]{7,40})$/.exec(s);
+      if (m) return `\u63D0\u4EA4 ${m[1]}`;
+      return null;
+    },
+    // 'Commits on Oct 24, 2026' → '2026年10月24日 的提交'
+    (s) => {
+      const m = /^Commits on ([A-Z][a-z]+) (\d{1,2}), (\d{4})$/.exec(s);
+      if (m && MONTH_CN[m[1]]) return `${m[3]}\u5E74${MONTH_CN[m[1]]}\u6708${m[2]}\u65E5 \u7684\u63D0\u4EA4`;
+      return null;
+    },
+    // 'on Sep 11' → '9月11日'(动态/审计日志日期碎片)
+    (s) => {
+      const m = /^on ([A-Z][a-z]+) (\d{1,2})$/.exec(s);
+      if (m && MONTH_CN[m[1]]) return `${MONTH_CN[m[1]]}\u6708${m[2]}\u65E5`;
+      return null;
+    },
+    // 'Star this repository (1227)' → '星标此仓库 (1227)'
+    (s) => {
+      const m = /^Star this repository \(([\d,]+)\)$/.exec(s);
+      if (m) return `\u661F\u6807\u6B64\u4ED3\u5E93 (${m[1]})`;
+      return null;
+    },
+    (s) => {
+      const m = /^Starred, click to unstar this repository \(([\d,]+)\)$/.exec(s);
+      if (m) return `\u5DF2\u661F\u6807,\u70B9\u51FB\u53D6\u6D88\u661F\u6807\u6B64\u4ED3\u5E93 (${m[1]})`;
+      return null;
+    },
+    // 'Star Node.js' / 'Star npm'(主题/仓库卡片星标按钮)
+    (s) => {
+      const m = /^Star ([\w.+-]+)$/.exec(s);
+      if (m) return `\u661F\u6807 ${m[1]}`;
+      return null;
+    },
+    // '325 issues in github/gh-aw' → 'github/gh-aw 的 325 个议题'
+    (s) => {
+      const m = /^(\d+) issues? in ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `${m[2]} \u7684 ${m[1]} \u4E2A\u8BAE\u9898`;
+      return null;
+    },
+    (s) => {
+      const m = /^(\d+) pull requests? in ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `${m[2]} \u7684 ${m[1]} \u4E2A PR`;
+      return null;
+    },
+    // 'Sort by Newest descending' → '排序:最新,降序'(关键词先查词条,如 Newest→最新)
+    (s) => {
+      const m = /^Sort by (.+?) (ascending|descending)$/.exec(s);
+      if (m) {
+        const key = lookup(m[1]) ?? m[1];
+        return `\u6392\u5E8F:${key},${m[2] === "ascending" ? "\u5347\u5E8F" : "\u964D\u5E8F"}`;
+      }
+      return null;
+    },
+    // 'Name ascending (A-Z)' → '名称升序 (A-Z)'
+    (s) => {
+      const m = /^Name (ascending|descending) \((A-Z|Z-A)\)$/.exec(s);
+      if (m) return `\u540D\u79F0${m[1] === "ascending" ? "\u5347\u5E8F" : "\u964D\u5E8F"} (${m[2]})`;
+      return null;
+    },
+    // 'Showing 10 of 567 repositories'
+    (s) => {
+      const m = /^Showing (\d+) of ([\d,]+) repositories$/.exec(s);
+      if (m) return `\u663E\u793A ${m[1]} / ${m[2]} \u4E2A\u4ED3\u5E93`;
+      return null;
+    },
+    // 'See the 64 items in this collection'
+    (s) => {
+      const m = /^See the ([\d,]+) items? in this collection$/.exec(s);
+      if (m) return `\u67E5\u770B\u6B64\u5408\u96C6\u5185\u7684 ${m[1]} \u4E2A\u9879\u76EE`;
+      return null;
+    },
+    // '26 starred repositories' / '0 starred topics'
+    (s) => {
+      const m = /^([\d,]+) starred (topics|repositories)$/.exec(s);
+      if (m) return `${m[1]} \u4E2A\u661F\u6807${m[2] === "topics" ? "\u4E3B\u9898" : "\u4ED3\u5E93"}`;
+      return null;
+    },
+    // '4 budgets' / 'Showing 1 to 4 of 4 budgets'
+    (s) => {
+      const m = /^([\d,]+) budgets?$/.exec(s);
+      if (m) return `${m[1]} \u4E2A\u9884\u7B97`;
+      return null;
+    },
+    (s) => {
+      const m = /^Showing (\d+) to (\d+) of (\d+) budgets$/.exec(s);
+      if (m) return `\u663E\u793A\u7B2C ${m[1]} \u5230 ${m[2]} \u4E2A,\u5171 ${m[3]} \u4E2A\u9884\u7B97`;
+      return null;
+    },
+    // 'View actions for Git LFS budget for Account ismoss'
+    (s) => {
+      const m = /^View actions for ([\w ]+) budget for Account ([\w.-]+)$/.exec(s);
+      if (m) return `\u67E5\u770B\u8D26\u6237 ${m[2]} \u7684 ${m[1].trim()} \u9884\u7B97\u64CD\u4F5C`;
+      return null;
+    },
+    // 'Budget utilization for ismoss'
+    (s) => {
+      const m = /^Budget utilization for ([\w.-]+)$/.exec(s);
+      if (m) return `${m[1]} \u7684\u9884\u7B97\u4F7F\u7528\u60C5\u51B5`;
+      return null;
+    },
+    // 'Repository menu: owner/repo'
+    (s) => {
+      const m = /^Repository menu: ([\w.-]+\/[\w.-]+)$/.exec(s);
+      if (m) return `\u4ED3\u5E93\u83DC\u5355:${m[1]}`;
+      return null;
+    },
+    // 账户删除:'immediately delete all of your repositories (11)'
+    (s) => {
+      const m = /^immediately delete all of your repositories \((\d+)\)$/.exec(s);
+      if (m) return `\u7ACB\u5373\u5220\u9664\u4F60\u7684\u6240\u6709\u4ED3\u5E93(${m[1]} \u4E2A)`;
+      return null;
+    },
+    // 社交登录解绑:'This will disconnect a@b.com from your social identity provider. …'
+    (s) => {
+      const m = /^This will disconnect (\S+@\S+) from your social identity provider\. You will no longer be able to use it as a password alternative\.$/.exec(s);
+      if (m) return `\u8FD9\u4F1A\u5C06 ${m[1]} \u4E0E\u4F60\u7684\u793E\u4EA4\u8EAB\u4EFD\u63D0\u4F9B\u65B9\u65AD\u5F00\u8FDE\u63A5\u3002\u4F60\u5C06\u65E0\u6CD5\u518D\u5C06\u5176\u7528\u4F5C\u5BC6\u7801\u66FF\u4EE3\u65B9\u5F0F\u3002`;
+      return null;
+    },
+    // 兜底:'Learn more about X'(放在最后,具体句已有词条的会先精确命中)
+    (s) => {
+      const m = /^Learn more about (.+)$/.exec(s);
+      if (m) return `\u4E86\u89E3 ${m[1]}`;
       return null;
     }
   ];

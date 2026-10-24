@@ -26,7 +26,7 @@ TypeScript + esbuild（bundle 成单文件 userscript，`@grant none`）。Node 
 - 版本号：`build.mjs` 顶部 `VERSION` 按构建时间自动生成（`YYYY.M.D.HHmm`），可被 `GH_I18N_VERSION` 环境变量覆盖；GitHub 提交由维护者手动执行（CI 只校验不提交）。
 
 ## 当前状态与下一步
-- 词库 2315 条（zh-CN.json）+ glossary 163 条，产物约 248KB。收集器闭环运转：用户逛 GitHub → 点「译」导出 JSON（数据含 url/tag/cls/attr 来源）→ 维护者批量甄别补词条。
+- 词库 4886 条（zh-CN.json）+ glossary 177 条，产物约 525KB。收集器闭环运转：用户逛 GitHub → 点「译」导出 JSON（数据含 url/tag/cls/attr 来源）→ 维护者批量甄别补词条。收集上限 600 字符（说明段落 200-400 字符很常见，200 会整段漏收）。
 - 未翻译收集数据甄别原则：GitHub 界面文本→加词库（原文必须与 DOM 精确一致，含大小写/标点/空格）；用户内容（项目名/用户名/分支名/许可证/日期/commit 标题/快捷键提示）→跳过；碎片（We/You can/has）→视拼接价值决定；**功能 ID/字段名（private_vulnerability_reporting、@timestamp 等）→跳过**。
 
 ## 发布流程（Moss 确定的正式约定：验证先行，推送殿后）
@@ -39,7 +39,7 @@ TypeScript + esbuild（bundle 成单文件 userscript，`@grant none`）。Node 
 
 ## 已知噪音（混入候选但不会误翻）
 - issues/PR 行元信息、repo 文件列表文件名；多数已被 `.opened-by`（全局）与 `.react-directory-listing`（页面级）豁免。
-- 自动化工具：`scripts/save-state.mjs`（保存 Playwright 登录态，**须等 .avatar-user 出现才算登录成功**，防 OAuth 中途误判）、`scripts/auto-collect.mjs`（自动逛页面收集未翻译；**设置页清单从 /settings/profile 左侧导航实际提取，勿手列**）、`scripts/pii-check.py`（提交前敏感扫描，退出码 0 才提交）、`scripts/dedup-collector.py`（收集数据去重合并）。
+- 自动化工具：`scripts/save-state.mjs`（保存 Playwright 登录态，**以登录凭证 cookie 为判据**（`context.cookies()` 查 `user_session`/`dotcom_user`；旧 `.avatar-user` 选择器已随 GitHub 头部改版失效，检测到立即 `storageState` 落盘防丢）、`scripts/auto-collect.mjs`（自动逛页面收集未翻译；**设置页清单从 /settings/profile 左侧导航实际提取，勿手列**）、`scripts/collect-repo-settings.mjs`（单仓设置页 BFS 扫查；页内 href 是相对路径，选择器用 `/owner/repo/settings` 前缀）、`scripts/login-and-sweep.mjs`（登录+扫描一体，用户只登一次）、`scripts/pii-check.py`（提交前敏感扫描，退出码 0 才提交）、`scripts/dedup-collector.py`（收集数据去重合并）。
 
 ## 已知坑（勿重犯，均已在引擎层/流程层根治）
 1. **首尾空格失配**（踩过 3 次：前导×2、尾随×1）→ normalize 已 trim，词库 key 一律 trim 版，**勿再加带首尾空格的 key**（本文件第 22 行铁律）。
@@ -54,6 +54,7 @@ TypeScript + esbuild（bundle 成单文件 userscript，`@grant none`）。Node 
 10. **确认弹窗动态句**（"You're about to disable X on all public repositories in Y"）→ 正则捕获的功能名先**大写化再查词条**再输出，否则输出英文原文。
 11. **测试断言笔误**（多次 FAIL 是测试期望值写错，非引擎问题）→ 写断言前先核对词条实际值（`lookup` 输出），再定期望。
 12. **heredoc 陷阱**（bash heredoc 里 `${}` 被 shell 解释、printf 里 `%` 被当格式符）→ 含 `${}`/`%` 的测试用 Write 工具写文件，不用 heredoc/printf。
+13. **同族正则只写了变体**（Star this repository (N)/Starred…(N) 写了，裸 `Star X` 漏写，复扫才发现）→ 同族句型一次写全再 build；正则捕获组若含词库词（如 Sort by Newest），先 `lookup(捕获组)` 再输出。
 
 ## 维护者（开发者模式）
 - 收集器「译/清」按钮**默认对所有用户隐藏**（第一性原理：收集器是维护工具，不是用户功能；普通用户零收集零 UI）。

@@ -945,6 +945,182 @@ const RULES: Array<(s: string) => string | null> = [
     if (m) return `${m[1]} 条保护规则`;
     return null;
   },
+  // ===== 2026-10-24 晚二批：全站 78 页扫查 =====
+  // 'Good evening, ismoss!' → '晚上好, ismoss!'
+  (s) => {
+    const m = /^Good (morning|afternoon|evening), ([\w.-]+)!$/.exec(s);
+    if (m) {
+      const part = m[1] === 'morning' ? '早上' : m[1] === 'afternoon' ? '下午' : '晚上';
+      return `${part}好, ${m[2]}!`;
+    }
+    return null;
+  },
+  // 'Page 3' → '第 3 页'
+  (s) => {
+    const m = /^Page (\d+)$/.exec(s);
+    if (m) return `第 ${m[1]} 页`;
+    return null;
+  },
+  // 'Show 1 more topic' → '显示另外 1 个主题'
+  (s) => {
+    const m = /^Show (\d+) more topics?$/.exec(s);
+    if (m) return `显示另外 ${m[1]} 个主题`;
+    return null;
+  },
+  // 'Pin owner/repo' / 'Pin owner/repo to your profile'
+  (s) => {
+    const m = /^Pin ([\w.-]+\/[\w.-]+) to your profile$/.exec(s);
+    if (m) return `将 ${m[1]} 置顶到你的主页`;
+    return null;
+  },
+  (s) => {
+    const m = /^Pin ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `置顶 ${m[1]}`;
+    return null;
+  },
+  // 'Follow abraham' / 'Unfollow abraham'
+  (s) => {
+    const m = /^Unfollow ([\w.-]+)$/.exec(s);
+    if (m) return `取消关注 ${m[1]}`;
+    return null;
+  },
+  (s) => {
+    const m = /^Follow ([\w.-]+)$/.exec(s);
+    if (m) return `关注 ${m[1]}`;
+    return null;
+  },
+  // 'Sponsor isaacs/github'
+  (s) => {
+    const m = /^Sponsor ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `赞助 ${m[1]}`;
+    return null;
+  },
+  // 'Commit 64eb419' → '提交 64eb419'
+  (s) => {
+    const m = /^Commit ([0-9a-f]{7,40})$/.exec(s);
+    if (m) return `提交 ${m[1]}`;
+    return null;
+  },
+  // 'Commits on Oct 24, 2026' → '2026年10月24日 的提交'
+  (s) => {
+    const m = /^Commits on ([A-Z][a-z]+) (\d{1,2}), (\d{4})$/.exec(s);
+    if (m && MONTH_CN[m[1]]) return `${m[3]}年${MONTH_CN[m[1]]}月${m[2]}日 的提交`;
+    return null;
+  },
+  // 'on Sep 11' → '9月11日'(动态/审计日志日期碎片)
+  (s) => {
+    const m = /^on ([A-Z][a-z]+) (\d{1,2})$/.exec(s);
+    if (m && MONTH_CN[m[1]]) return `${MONTH_CN[m[1]]}月${m[2]}日`;
+    return null;
+  },
+  // 'Star this repository (1227)' → '星标此仓库 (1227)'
+  (s) => {
+    const m = /^Star this repository \(([\d,]+)\)$/.exec(s);
+    if (m) return `星标此仓库 (${m[1]})`;
+    return null;
+  },
+  (s) => {
+    const m = /^Starred, click to unstar this repository \(([\d,]+)\)$/.exec(s);
+    if (m) return `已星标,点击取消星标此仓库 (${m[1]})`;
+    return null;
+  },
+  // 'Star Node.js' / 'Star npm'(主题/仓库卡片星标按钮)
+  (s) => {
+    const m = /^Star ([\w.+-]+)$/.exec(s);
+    if (m) return `星标 ${m[1]}`;
+    return null;
+  },
+  // '325 issues in github/gh-aw' → 'github/gh-aw 的 325 个议题'
+  (s) => {
+    const m = /^(\d+) issues? in ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `${m[2]} 的 ${m[1]} 个议题`;
+    return null;
+  },
+  (s) => {
+    const m = /^(\d+) pull requests? in ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `${m[2]} 的 ${m[1]} 个 PR`;
+    return null;
+  },
+  // 'Sort by Newest descending' → '排序:最新,降序'(关键词先查词条,如 Newest→最新)
+  (s) => {
+    const m = /^Sort by (.+?) (ascending|descending)$/.exec(s);
+    if (m) {
+      const key = lookup(m[1]) ?? m[1];
+      return `排序:${key},${m[2] === 'ascending' ? '升序' : '降序'}`;
+    }
+    return null;
+  },
+  // 'Name ascending (A-Z)' → '名称升序 (A-Z)'
+  (s) => {
+    const m = /^Name (ascending|descending) \((A-Z|Z-A)\)$/.exec(s);
+    if (m) return `名称${m[1] === 'ascending' ? '升序' : '降序'} (${m[2]})`;
+    return null;
+  },
+  // 'Showing 10 of 567 repositories'
+  (s) => {
+    const m = /^Showing (\d+) of ([\d,]+) repositories$/.exec(s);
+    if (m) return `显示 ${m[1]} / ${m[2]} 个仓库`;
+    return null;
+  },
+  // 'See the 64 items in this collection'
+  (s) => {
+    const m = /^See the ([\d,]+) items? in this collection$/.exec(s);
+    if (m) return `查看此合集内的 ${m[1]} 个项目`;
+    return null;
+  },
+  // '26 starred repositories' / '0 starred topics'
+  (s) => {
+    const m = /^([\d,]+) starred (topics|repositories)$/.exec(s);
+    if (m) return `${m[1]} 个星标${m[2] === 'topics' ? '主题' : '仓库'}`;
+    return null;
+  },
+  // '4 budgets' / 'Showing 1 to 4 of 4 budgets'
+  (s) => {
+    const m = /^([\d,]+) budgets?$/.exec(s);
+    if (m) return `${m[1]} 个预算`;
+    return null;
+  },
+  (s) => {
+    const m = /^Showing (\d+) to (\d+) of (\d+) budgets$/.exec(s);
+    if (m) return `显示第 ${m[1]} 到 ${m[2]} 个,共 ${m[3]} 个预算`;
+    return null;
+  },
+  // 'View actions for Git LFS budget for Account ismoss'
+  (s) => {
+    const m = /^View actions for ([\w ]+) budget for Account ([\w.-]+)$/.exec(s);
+    if (m) return `查看账户 ${m[2]} 的 ${m[1].trim()} 预算操作`;
+    return null;
+  },
+  // 'Budget utilization for ismoss'
+  (s) => {
+    const m = /^Budget utilization for ([\w.-]+)$/.exec(s);
+    if (m) return `${m[1]} 的预算使用情况`;
+    return null;
+  },
+  // 'Repository menu: owner/repo'
+  (s) => {
+    const m = /^Repository menu: ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `仓库菜单:${m[1]}`;
+    return null;
+  },
+  // 账户删除:'immediately delete all of your repositories (11)'
+  (s) => {
+    const m = /^immediately delete all of your repositories \((\d+)\)$/.exec(s);
+    if (m) return `立即删除你的所有仓库(${m[1]} 个)`;
+    return null;
+  },
+  // 社交登录解绑:'This will disconnect a@b.com from your social identity provider. …'
+  (s) => {
+    const m = /^This will disconnect (\S+@\S+) from your social identity provider\. You will no longer be able to use it as a password alternative\.$/.exec(s);
+    if (m) return `这会将 ${m[1]} 与你的社交身份提供方断开连接。你将无法再将其用作密码替代方式。`;
+    return null;
+  },
+  // 兜底:'Learn more about X'(放在最后,具体句已有词条的会先精确命中)
+  (s) => {
+    const m = /^Learn more about (.+)$/.exec(s);
+    if (m) return `了解 ${m[1]}`;
+    return null;
+  },
 ];
 
 /**
