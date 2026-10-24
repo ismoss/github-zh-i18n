@@ -908,6 +908,43 @@ const RULES: Array<(s: string) => string | null> = [
     if (m && MONTH_CN[m[1]]) return `自 ${m[3]}年${MONTH_CN[m[1]]}月${m[2]}日 起，GitHub 将限制`;
     return null;
   },
+  // ===== 2026-10-24 晚：read-pico-reader 仓库设置页扫查（37 页）补充 =====
+  // 'Forked from wegooo-cell/read-pico-reader' → '复刻自 …'
+  (s) => {
+    const m = /^Forked from ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `复刻自 ${m[1]}`;
+    return null;
+  },
+  // 'Add people to ismoss/read-pico-reader' → '为 … 添加成员'
+  (s) => {
+    const m = /^Add people to ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `为 ${m[1]} 添加成员`;
+    return null;
+  },
+  // 'Unpublish ismoss/read-pico-reader' → '取消发布 …'
+  (s) => {
+    const m = /^Unpublish ([\w.-]+\/[\w.-]+)$/.exec(s);
+    if (m) return `取消发布 ${m[1]}`;
+    return null;
+  },
+  // 默认分支选择（fragment 以 'instead of' 结尾，仓库名动态）
+  (s) => {
+    const m = /^Choose another branch to use as the default branch of ([\w.-]+\/[\w.-]+) instead of$/.exec(s);
+    if (m) return `另选一个分支作为 ${m[1]} 的默认分支，以替代`;
+    return null;
+  },
+  // '5 of 5 languages selected' → '已选 5/5 种语言'
+  (s) => {
+    const m = /^(\d+) of (\d+) languages selected$/.exec(s);
+    if (m) return `已选 ${m[1]}/${m[2]} 种语言`;
+    return null;
+  },
+  // '1 protection rule' / '3 protection rules' → 'N 条保护规则'
+  (s) => {
+    const m = /^(\d+) protection rules?$/.exec(s);
+    if (m) return `${m[1]} 条保护规则`;
+    return null;
+  },
 ];
 
 /**

@@ -165,5 +165,12 @@
   "API": "API",
   "OIDC": "OIDC",
   "SHA": "SHA",
-  "MCP": "MCP"
+  "MCP": "MCP",
+  "CodeQL": "CodeQL",
+  "Cursor": "Cursor",
+  "cursor": "cursor",
+  "Playwright": "Playwright",
+  "JavaScript / TypeScript": "JavaScript / TypeScript",
+  "Swift *": "Swift *",
+  "/docs": "/docs"
 }

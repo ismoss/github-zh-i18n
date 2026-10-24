@@ -14,3 +14,6 @@ untranslated-auto.json
 untranslated-bundle.json
 scripts/candidates.json
 scripts/.chunks/
+
+# 仓库设置页扫查产物
+untranslated-repo-settings.json

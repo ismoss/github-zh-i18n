@@ -24,26 +24,27 @@ console.log('浏览器已打开，请在窗口中登录 GitHub（扫码、输密
 console.log('提示：使用 Google/Apple 等第三方登录时，会先跳转到对应网站，脚本会等授权完成回到 GitHub 才算登录成功。');
 
 // 轮询等待登录完成，条件（全部满足）：
-//   1) URL 回到 github.com 主域（排除 accounts.google.com 等 OAuth 跳转域）
-//   2) URL 不含 /login、/sessions、/session（排除登录页与 2FA/会话验证页）
-//   3) 页面出现登录用户头像 .avatar-user（登录成功的可靠特征）
+//   1) URL 在 github.com 主域（排除 accounts.google.com 等 OAuth 跳转域）
+//   2) meta[user-login] 非空（服务端渲染的登录名,最可靠;旧 .avatar-user 选择器已失效,2026-10）或 .avatar-user 出现
 let loggedIn = false;
 for (let i = 0; i < 600; i++) {
-  await page.waitForTimeout(1000);
   try {
+    await page.waitForTimeout(1000);
     const url = page.url();
     const host = new URL(url).hostname;
     if (host !== 'github.com') continue; // OAuth 授权页等，继续等
-    if (/github\.com\/(login|session)/.test(url)) continue;
-    const hasAvatar = await page
-      .evaluate(() => !!document.querySelector('.avatar-user'))
-      .catch(() => false);
-    if (hasAvatar) {
+    const hasLogin = await page.evaluate(() => {
+      const meta = document.querySelector('meta[name="user-login"]');
+      if (meta && meta.content) return true;
+      return !!document.querySelector('.avatar-user');
+    });
+    if (hasLogin) {
       loggedIn = true;
       break;
     }
   } catch {
-    /* 页面导航中，忽略 */
+    console.log('浏览器窗口已被关闭,退出。');
+    process.exit(2);
   }
   if (i > 0 && i % 30 === 0) console.log(`  仍在等待登录完成…（已 ${Math.floor(i / 60)} 分钟）`);
 }

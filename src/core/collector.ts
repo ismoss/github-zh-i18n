@@ -58,7 +58,8 @@ function save(): void {
 
 /** 是否值得收集：短英文 UI 文本，排除代码/路径/URL 特征 */
 function isWorthCollecting(s: string): boolean {
-  if (s.length < 2 || s.length > 200) return false;
+  // 上限 600：设置页说明段落普遍 200-400 字符，200 会漏收整段 UI 文案（2026-10-24 实测）
+  if (s.length < 2 || s.length > 600) return false;
   if (!/[A-Za-z]/.test(s)) return false;
   // 已含中文的内容不收集（多半是已经被翻译过的文本，避免自污染）
   if (/[\u4e00-\u9fff]/.test(s)) return false;
